@@ -80,11 +80,21 @@ export default function TrustTicker() {
   const items = [...BADGES, ...BADGES];
 
   return (
-    <div className="overflow-hidden bg-foreground py-3" aria-label="Product trust badges">
-      <div className="marquee-horizontal flex w-max items-center">
-        {items.map((badge, i) => (
-          <BadgeItem key={`${badge.label}-${i}`} icon={badge.icon} label={badge.label} />
-        ))}
+    <div className="bg-foreground py-3" aria-label="Product trust badges">
+      <div
+        className="overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        }}
+      >
+        <div className="marquee-horizontal flex w-max items-center">
+          {items.map((badge, i) => (
+            <BadgeItem key={`${badge.label}-${i}`} icon={badge.icon} label={badge.label} />
+          ))}
+        </div>
       </div>
     </div>
   );

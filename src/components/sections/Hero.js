@@ -8,7 +8,7 @@ export default function Hero({ heroImages = [] }) {
   const mainImage = heroImages[0] || null;
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-background pt-24 sm:pt-28">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-background py-32 sm:py-36 lg:py-40">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col gap-6 sm:gap-8">

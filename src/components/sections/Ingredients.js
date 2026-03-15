@@ -58,7 +58,7 @@ function IngredientImage({ src, label, className = "" }) {
   if (src) {
     return (
       <div className={`relative aspect-square w-full overflow-hidden ${className}`}>
-        <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 640px) 80vw, 400px" />
+        <Image src={src} alt={label} fill className="object-contain" sizes="(max-width: 640px) 80vw, 400px" />
       </div>
     );
   }

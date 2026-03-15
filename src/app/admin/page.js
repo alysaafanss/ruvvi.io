@@ -84,6 +84,12 @@ function UploadZone({ onUploadComplete }) {
   const [cropSrc, setCropSrc] = useState(null);
   const fileRef = useRef(null);
   const pendingFilesRef = useRef([]);
+  const categoryRef = useRef("Hero");
+
+  function handleCategoryChange(value) {
+    setCategory(value);
+    categoryRef.current = value;
+  }
 
   function openCropper(file) {
     const url = URL.createObjectURL(file);
@@ -97,20 +103,17 @@ function UploadZone({ onUploadComplete }) {
     openCropper(files[0]);
   }
 
-  async function uploadFile(file) {
-    const formData = new FormData();
-    formData.set("file", file);
-    formData.set("category", category);
-    return uploadImageAction(formData);
-  }
-
   async function handleCropDone(croppedFile) {
     const fileToUpload = croppedFile || cropFile;
+    const uploadCategory = categoryRef.current;
     setCropFile(null);
     setCropSrc(null);
 
     setUploading(true);
-    const result = await uploadFile(fileToUpload);
+    const formData = new FormData();
+    formData.set("file", fileToUpload);
+    formData.set("category", uploadCategory);
+    const result = await uploadImageAction(formData);
     if (result.error) {
       alert(`Upload failed: ${result.error}`);
     }
@@ -147,7 +150,7 @@ function UploadZone({ onUploadComplete }) {
             <select
               id="upload-category"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={(e) => handleCategoryChange(e.target.value)}
               className="mt-1 block w-full rounded-xl border border-border bg-white px-4 py-2.5 text-sm font-medium text-foreground focus:border-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20"
             >
               {UPLOAD_CATEGORIES.map((c) => (
@@ -204,6 +207,9 @@ function UploadZone({ onUploadComplete }) {
                 </p>
                 <p className="mt-1 text-xs text-muted">
                   JPG, PNG, WebP, AVIF up to 10MB
+                </p>
+                <p className="mt-2 rounded-full bg-foreground/10 px-3 py-1 text-xs font-bold text-foreground">
+                  Uploading to: {category}
                 </p>
               </>
             )}

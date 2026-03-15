@@ -1,12 +1,12 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import {
   ensureBucket,
   uploadImage,
   deleteImage,
   listImages,
-  BUCKET,
 } from "@/lib/supabase/storage";
 
 export async function getImagesAction(category) {
@@ -28,7 +28,8 @@ export async function uploadImageAction(formData) {
 
   try {
     const result = await uploadImage(supabase, file, category);
-    return { success: true, ...result };
+    revalidatePath("/");
+    return { success: true, category, ...result };
   } catch (err) {
     return { error: err.message || "Upload failed" };
   }
@@ -38,6 +39,7 @@ export async function deleteImageAction(path) {
   const supabase = await createClient();
   try {
     await deleteImage(supabase, path);
+    revalidatePath("/");
     return { success: true };
   } catch (err) {
     return { error: err.message || "Delete failed" };
