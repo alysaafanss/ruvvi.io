@@ -45,7 +45,7 @@ function FAQItem({ question, answer }) {
         className="flex w-full items-center justify-between p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 rounded-2xl sm:rounded-3xl sm:p-6 lg:p-8"
         aria-expanded={open}
       >
-        <span className="font-display text-sm font-bold text-foreground pr-4 sm:text-base lg:text-lg">
+        <span className="font-display text-sm font-bold tracking-[0.12em] text-foreground pr-4 sm:text-base lg:text-lg">
           {question}
         </span>
         <div
@@ -76,7 +76,7 @@ export default function FAQ() {
     <section id="faq" className="bg-background py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[0.04em] text-foreground sm:text-4xl lg:text-5xl">
             Got questions?
           </h2>
           <p className="mt-3 text-sm text-muted sm:mt-4 sm:text-base lg:text-lg">

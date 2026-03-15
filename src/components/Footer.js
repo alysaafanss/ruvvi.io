@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
           <Link
             href="/"
-            className="font-display text-lg font-extrabold tracking-tight text-foreground"
+            className="font-display text-lg font-extrabold tracking-[0.04em] text-foreground"
           >
             ruvvi
           </Link>

@@ -26,7 +26,7 @@ export default function SocialProof() {
     <section className="bg-background py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[0.04em] text-foreground sm:text-4xl lg:text-5xl">
             Real experiences
           </h2>
           <p className="mt-3 text-sm text-muted sm:mt-4 sm:text-base lg:text-lg">

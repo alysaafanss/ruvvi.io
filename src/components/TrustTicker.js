@@ -69,7 +69,7 @@ function BadgeItem({ icon, label }) {
   return (
     <div className="flex shrink-0 items-center gap-2 px-6">
       <span className="text-white/60">{icon}</span>
-      <span className="whitespace-nowrap text-xs font-semibold tracking-wide text-white/80">
+      <span className="font-display whitespace-nowrap text-xs font-semibold tracking-[0.12em] text-white/80">
         {label}
       </span>
     </div>

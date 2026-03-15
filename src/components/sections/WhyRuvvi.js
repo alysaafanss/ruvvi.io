@@ -51,7 +51,7 @@ export default function WhyRuvvi() {
     <section className="bg-foreground py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[0.04em] text-white sm:text-4xl lg:text-5xl">
             Built different
           </h2>
           <p className="mt-3 text-sm text-white/60 sm:mt-4 sm:text-base lg:text-lg">
@@ -68,7 +68,7 @@ export default function WhyRuvvi() {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/20 text-accent sm:h-12 sm:w-12 sm:rounded-2xl">
                 {benefit.icon}
               </div>
-              <h3 className="mt-4 font-display text-base font-bold text-white sm:mt-5 sm:text-lg">
+              <h3 className="mt-4 font-display text-base font-bold tracking-[0.04em] text-white sm:mt-5 sm:text-lg">
                 {benefit.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">

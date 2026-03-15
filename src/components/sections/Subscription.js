@@ -12,10 +12,10 @@ export default function Subscription() {
     <section className="bg-mint py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-xs font-bold text-accent sm:text-sm">
+          <p className="font-display text-xs font-bold tracking-[0.12em] text-accent sm:text-sm">
             Subscribe & save
           </p>
-          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="mt-3 font-display text-3xl font-extrabold tracking-[0.04em] text-foreground sm:text-4xl lg:text-5xl">
             15% off every order.
             <br />
             Never run out.
@@ -38,8 +38,8 @@ export default function Subscription() {
             ))}
           </ul>
 
-          <AddToCartButton className="mt-8 inline-flex items-center rounded-full border-[3px] border-foreground bg-foreground px-10 py-4 text-sm font-bold text-white transition-all hover:bg-foreground/90 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:mt-10 sm:px-12 sm:py-[18px] sm:text-base">
-            Subscribe now
+          <AddToCartButton className="mt-8 inline-flex items-center rounded-full border-[3px] border-foreground bg-foreground px-10 py-4 text-sm font-display font-bold tracking-[0.1em] text-white transition-all hover:bg-foreground/90 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:mt-10 sm:px-12 sm:py-[18px] sm:text-base uppercase">
+            SUBSCRIBE NOW
           </AddToCartButton>
         </div>
       </div>

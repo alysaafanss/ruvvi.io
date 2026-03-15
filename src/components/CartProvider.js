@@ -56,7 +56,7 @@ function CartDrawer({ open, onClose, qty, setQty }) {
         aria-label="Shopping cart"
       >
         <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
-          <h2 className="font-display text-lg font-bold text-foreground">
+          <h2 className="font-display text-lg font-bold tracking-[0.04em] text-foreground">
             Your Cart ({qty})
           </h2>
           <button
@@ -153,7 +153,7 @@ function CartDrawer({ open, onClose, qty, setQty }) {
               <svg className="h-12 w-12 text-muted/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
               </svg>
-              <p className="mt-4 font-display text-sm font-bold text-foreground">
+              <p className="mt-4 font-display text-sm font-bold tracking-[0.04em] text-foreground">
                 Your cart is empty
               </p>
               <p className="mt-1 text-xs text-muted">
@@ -192,7 +192,7 @@ function CartDrawer({ open, onClose, qty, setQty }) {
 
             <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-4">
               <div className="flex items-center gap-2">
-                <span className="font-display text-base font-bold text-foreground">
+                <span className="font-display text-base font-bold tracking-[0.04em] text-foreground">
                   Subtotal
                 </span>
                 <span className="rounded-full bg-accent/30 px-2 py-0.5 text-xs font-bold text-accent-dark">
@@ -203,17 +203,17 @@ function CartDrawer({ open, onClose, qty, setQty }) {
                 <span className="text-xs text-muted line-through">
                   ${(PRODUCT.priceOriginal * qty).toFixed(2)}
                 </span>
-                <span className="font-display text-lg font-bold text-foreground">
+                <span className="font-display text-lg font-bold tracking-[0.04em] text-foreground">
                   ${subtotal.toFixed(2)}
                 </span>
               </div>
             </div>
 
-            <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border-[3px] border-foreground bg-foreground px-6 py-4 text-sm font-bold text-white transition-all hover:bg-foreground/90 hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
+            <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border-[3px] border-foreground bg-foreground px-6 py-4 text-sm font-display font-bold tracking-[0.1em] text-white transition-all hover:bg-foreground/90 hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 uppercase">
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
               </svg>
-              Secure Checkout
+              SECURE CHECKOUT
             </button>
 
             <div className="mt-4 flex items-center justify-center gap-4 text-xs text-muted">

@@ -12,20 +12,25 @@ import SocialProof from "@/components/sections/SocialProof";
 import Subscription from "@/components/sections/Subscription";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
+import { getAllSectionImages } from "@/lib/getImages";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const images = await getAllSectionImages();
+
   return (
     <>
       <Navbar />
       <main>
-        <Hero />
+        <Hero heroImages={images.hero} />
         <TrustTicker />
         <HowItWorks />
         <WhyRuvvi />
         <WhyPouches />
-        <Lifestyle />
-        <ProductDetails />
-        <Ingredients />
+        <Lifestyle images={images.lifestyle} />
+        <ProductDetails images={images.product} />
+        <Ingredients ingredientImages={images.ingredients} />
         <SocialProof />
         <Subscription />
         <FAQ />

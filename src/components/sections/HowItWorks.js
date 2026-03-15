@@ -21,7 +21,7 @@ export default function HowItWorks() {
     <section id="how-it-works" className="bg-background py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[0.04em] text-foreground sm:text-4xl lg:text-5xl">
             Simple as that
           </h2>
           <p className="mt-3 text-sm text-muted sm:mt-4 sm:text-base lg:text-lg">
@@ -36,11 +36,11 @@ export default function HowItWorks() {
               className="flex flex-col items-center rounded-2xl bg-sage p-8 text-center sm:rounded-3xl sm:p-10"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-dark/10 sm:h-16 sm:w-16">
-                <span className="font-display text-xl font-extrabold text-accent-dark sm:text-2xl">
+                <span className="font-display text-xl font-extrabold tracking-[0.04em] text-accent-dark sm:text-2xl">
                   {step.number}
                 </span>
               </div>
-              <h3 className="mt-5 font-display text-lg font-bold text-foreground sm:mt-6 sm:text-xl">
+              <h3 className="mt-5 font-display text-lg font-bold tracking-[0.04em] text-foreground sm:mt-6 sm:text-xl">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted sm:mt-3">

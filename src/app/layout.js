@@ -1,16 +1,18 @@
-import { Inter, DM_Sans } from "next/font/google";
+import { Cormorant_Garamond, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import CartProvider from "@/components/CartProvider";
 
-const inter = Inter({
-  variable: "--font-inter",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const bebas = Bebas_Neue({
+  variable: "--font-bebas",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: "400",
 });
 
 export const metadata = {
@@ -22,9 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${dmSans.variable} font-sans antialiased`}
-      >
+      <body className={`${cormorant.variable} ${bebas.variable} antialiased`}>
         <CartProvider>{children}</CartProvider>
       </body>
     </html>

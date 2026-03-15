@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PlaceholderImage from "@/components/PlaceholderImage";
 
 const SCENARIOS = [
@@ -7,12 +8,12 @@ const SCENARIOS = [
   { label: "Social", span: "col-span-2 row-span-1" },
 ];
 
-export default function Lifestyle() {
+export default function Lifestyle({ images = [] }) {
   return (
     <section className="bg-background py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[0.04em] text-foreground sm:text-4xl lg:text-5xl">
             Keep one on you
           </h2>
           <p className="mt-3 text-sm text-muted sm:mt-4 sm:text-base lg:text-lg">
@@ -21,13 +22,25 @@ export default function Lifestyle() {
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-16 sm:grid-cols-4 sm:gap-4 lg:gap-6">
-          {SCENARIOS.map((scenario) => (
+          {SCENARIOS.map((scenario, i) => (
             <div key={scenario.label} className={`${scenario.span} overflow-hidden rounded-2xl sm:rounded-3xl`}>
-              <PlaceholderImage
-                label={scenario.label}
-                className="h-full w-full min-h-[140px] sm:min-h-[200px]"
-                aspectRatio=""
-              />
+              {images[i] ? (
+                <div className="relative h-full w-full min-h-[140px] sm:min-h-[200px]">
+                  <Image
+                    src={images[i]}
+                    alt={scenario.label}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                </div>
+              ) : (
+                <PlaceholderImage
+                  label={scenario.label}
+                  className="h-full w-full min-h-[140px] sm:min-h-[200px]"
+                  aspectRatio=""
+                />
+              )}
             </div>
           ))}
         </div>

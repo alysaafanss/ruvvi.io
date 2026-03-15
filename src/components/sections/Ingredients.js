@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
+import Image from "next/image";
 import AddToCartButton from "@/components/AddToCartButton";
 import PlaceholderImage from "@/components/PlaceholderImage";
 
@@ -53,7 +54,18 @@ function getIdx(i, len) {
   return ((i % len) + len) % len;
 }
 
-export default function Ingredients() {
+function IngredientImage({ src, label, className = "" }) {
+  if (src) {
+    return (
+      <div className={`relative aspect-square w-full overflow-hidden ${className}`}>
+        <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 640px) 80vw, 400px" />
+      </div>
+    );
+  }
+  return <PlaceholderImage label={label} aspectRatio="aspect-square" className={className} />;
+}
+
+export default function Ingredients({ ingredientImages = [] }) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState("right");
   const touchRef = useRef(null);
@@ -92,7 +104,7 @@ export default function Ingredients() {
     <section id="ingredients" className="bg-background py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[0.04em] text-foreground sm:text-4xl lg:text-5xl">
             What&apos;s inside
           </h2>
 
@@ -126,17 +138,17 @@ export default function Ingredients() {
               className="hidden w-40 shrink-0 cursor-pointer opacity-30 transition-all duration-300 hover:opacity-50 sm:block lg:w-52"
               aria-label="Previous ingredient"
             >
-              <PlaceholderImage
+              <IngredientImage
+                src={ingredientImages[prevIdx]?.url}
                 label={INGREDIENTS[prevIdx].name}
-                aspectRatio="aspect-square"
                 className="rounded-2xl scale-90"
               />
             </button>
 
             <div key={`img-${current}`} className={`w-full max-w-xs sm:max-w-sm shrink-0 ${slideClass}`}>
-              <PlaceholderImage
+              <IngredientImage
+                src={ingredientImages[current]?.url}
                 label={ingredient.name}
-                aspectRatio="aspect-square"
                 className="rounded-3xl"
               />
             </div>
@@ -146,9 +158,9 @@ export default function Ingredients() {
               className="hidden w-40 shrink-0 cursor-pointer opacity-30 transition-all duration-300 hover:opacity-50 sm:block lg:w-52"
               aria-label="Next ingredient"
             >
-              <PlaceholderImage
+              <IngredientImage
+                src={ingredientImages[nextIdx]?.url}
                 label={INGREDIENTS[nextIdx].name}
-                aspectRatio="aspect-square"
                 className="rounded-2xl scale-90"
               />
             </button>
@@ -176,10 +188,10 @@ export default function Ingredients() {
         </div>
 
         <div key={`text-${current}`} className="fade-up mx-auto mt-8 max-w-lg text-center sm:mt-10">
-          <p className="text-xs font-bold uppercase tracking-widest text-muted">
+          <p className="font-display text-xs font-bold uppercase tracking-[0.12em] text-muted">
             {ingredient.category}
           </p>
-          <h3 className="mt-2 font-display text-2xl font-extrabold text-foreground sm:text-3xl lg:text-4xl">
+          <h3 className="mt-2 font-display text-2xl font-extrabold tracking-[0.04em] text-foreground sm:text-3xl lg:text-4xl">
             {ingredient.name}
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-foreground sm:text-base">
@@ -193,8 +205,8 @@ export default function Ingredients() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <AddToCartButton className="inline-flex items-center rounded-full border-[3px] border-foreground bg-foreground px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-foreground/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:px-10 sm:py-4">
-            Try RUVVI now
+          <AddToCartButton className="inline-flex items-center rounded-full border-[3px] border-foreground bg-foreground px-8 py-3.5 text-sm font-display font-bold tracking-[0.1em] text-white transition-all hover:bg-foreground/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:px-10 sm:py-4 uppercase">
+            TRY RUVVI NOW
           </AddToCartButton>
         </div>
       </div>

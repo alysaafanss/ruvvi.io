@@ -17,7 +17,7 @@ export default function WhyPouches() {
     <section className="bg-mint py-20 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[0.04em] text-foreground sm:text-4xl lg:text-5xl">
             Not all formats are
             <br className="hidden sm:block" />
             {" "}created equal
@@ -28,7 +28,7 @@ export default function WhyPouches() {
           <div className="flex flex-col gap-3 sm:gap-4">
             {FORMATS.map((format) => (
               <div key={format.name} className="rounded-2xl bg-white/50 p-5 sm:rounded-3xl sm:p-6">
-                <h4 className="font-display text-sm font-bold text-foreground sm:text-base">
+                <h4 className="font-display text-sm font-bold tracking-[0.04em] text-foreground sm:text-base">
                   {format.name}
                 </h4>
                 <ul className="mt-2 flex flex-col gap-1.5 sm:mt-3 sm:gap-2">
@@ -46,7 +46,7 @@ export default function WhyPouches() {
           </div>
 
           <div className="flex flex-col justify-center rounded-2xl bg-foreground p-6 sm:rounded-3xl sm:p-8 lg:p-10">
-            <h3 className="font-display text-lg font-bold text-white sm:text-xl">
+            <h3 className="font-display text-lg font-bold tracking-[0.04em] text-white sm:text-xl">
               RUVVI Pouches
             </h3>
             <ul className="mt-5 flex flex-col gap-4 sm:mt-6 sm:gap-5">
