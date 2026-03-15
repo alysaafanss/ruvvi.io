@@ -78,3 +78,31 @@ html {
 .marquee-track:hover {
   animation-play-state: paused;
 }
+
+@keyframes slider-in-right {
+  from { transform: translateX(60px) scale(0.92); opacity: 0; }
+  to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes slider-in-left {
+  from { transform: translateX(-60px) scale(0.92); opacity: 0; }
+  to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes fade-up-in {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.slide-from-right { animation: slider-in-right 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.slide-from-left  { animation: slider-in-left  0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fade-up          { animation: fade-up-in       0.4s  cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-horizontal {
+  animation: marquee-left 30s linear infinite;
+}

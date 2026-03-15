@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import TrustTicker from "@/components/TrustTicker";
 import Hero from "@/components/sections/Hero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import WhyRuvvi from "@/components/sections/WhyRuvvi";
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <TrustTicker />
         <HowItWorks />
         <WhyRuvvi />
         <WhyPouches />
