@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useCart } from "@/components/CartProvider";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
@@ -12,6 +13,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openCart, qty } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -31,91 +33,95 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+    <nav className="fixed top-0 left-0 right-0 z-50">
       <div
-        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/90 shadow-lg backdrop-blur-md"
-            : "bg-white/70 backdrop-blur-sm"
+        className={`bg-foreground transition-shadow duration-300 ${
+          scrolled ? "shadow-lg" : ""
         }`}
       >
-        <Link
-          href="/"
-          className="font-display text-lg font-extrabold tracking-tight text-foreground"
-        >
-          ruvvi
-        </Link>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 sm:py-3.5 lg:px-8">
+          <Link
+            href="/"
+            className="font-display text-lg font-extrabold tracking-tight text-white sm:text-xl"
+          >
+            ruvvi
+          </Link>
 
-        <div className="hidden items-center gap-6 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark rounded-lg px-1"
+          <div className="hidden items-center gap-6 md:flex">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-white/70 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg px-1"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              onClick={openCart}
+              className="hidden items-center rounded-full border-2 border-white/30 bg-transparent px-6 py-2 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-foreground md:inline-flex"
             >
-              {link.label}
-            </a>
-          ))}
-        </div>
+              Shop RUVVI
+            </button>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="#how-it-works"
-            className="rounded-full px-5 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-foreground/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark"
-          >
-            Learn more
-          </a>
-          <a
-            href="#shop"
-            className="rounded-full bg-foreground px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-foreground/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2"
-          >
-            Shop RUVVI
-          </a>
-        </div>
+            <button
+              onClick={openCart}
+              className="relative flex h-9 w-9 items-center justify-center rounded-full text-white/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-accent md:h-10 md:w-10"
+              aria-label="Open cart"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+              </svg>
+              {qty > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-foreground">
+                  {qty}
+                </span>
+              )}
+            </button>
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="flex items-center justify-center rounded-full p-2 md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-        >
-          <svg
-            className="h-5 w-5 text-foreground"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-            aria-hidden="true"
-          >
-            {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-            )}
-          </svg>
-        </button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex items-center justify-center rounded-full p-2 text-white/70 hover:text-white md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                {menuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 top-[72px] bg-white/95 backdrop-blur-lg md:hidden">
+        <div className="fixed inset-0 top-[56px] bg-foreground md:hidden sm:top-[60px]">
           <div className="flex flex-col items-center gap-6 pt-12">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-display text-2xl font-bold text-foreground"
+                className="font-display text-2xl font-bold text-white"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#shop"
-              onClick={() => setMenuOpen(false)}
-              className="mt-4 rounded-full bg-foreground px-10 py-3.5 text-base font-semibold text-white"
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                openCart();
+              }}
+              className="mt-4 rounded-full border-2 border-white/30 px-10 py-3.5 text-base font-semibold text-white transition-all hover:border-white hover:bg-white/10"
             >
               Shop RUVVI
-            </a>
+            </button>
           </div>
         </div>
       )}

@@ -1,8 +1,10 @@
+import AddToCartButton from "@/components/AddToCartButton";
+
 const INGREDIENTS = [
   {
     name: "Nitrosigine",
     description: "Clinically studied complex that boosts nitric oxide levels for enhanced blood flow within 30 minutes.",
-    color: "bg-accent-dark/10 text-accent-dark",
+    color: "bg-foreground/10 text-foreground",
   },
   {
     name: "Vaso6",
@@ -38,39 +40,36 @@ const INGREDIENTS = [
 
 export default function Ingredients() {
   return (
-    <section id="ingredients" className="bg-sage py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="ingredients" className="bg-sage py-20 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-start gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="lg:sticky lg:top-32">
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               Transparent
               <br />
               ingredients
             </h2>
-            <p className="mt-4 text-base text-muted sm:text-lg">
+            <p className="mt-4 text-sm text-muted sm:text-base lg:text-lg">
               No proprietary blends. Every ingredient serves a purpose.
               Clinically studied. Clearly dosed.
             </p>
-            <a
-              href="#shop"
-              className="mt-8 inline-flex items-center rounded-full bg-foreground px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-foreground/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2"
-            >
-              Get started for free
-            </a>
+            <AddToCartButton className="mt-8 inline-flex items-center rounded-full border-[3px] border-foreground bg-foreground px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-foreground/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:px-10 sm:py-4">
+              Try RUVVI now
+            </AddToCartButton>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             {INGREDIENTS.map((ingredient) => (
               <div
                 key={ingredient.name}
-                className="rounded-3xl bg-white/60 p-6 transition-all hover:bg-white/80 sm:p-8"
+                className="rounded-2xl bg-white/60 p-5 transition-all hover:bg-white/80 sm:rounded-3xl sm:p-6 lg:p-8"
               >
                 <div className="flex items-center gap-3">
                   <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold ${ingredient.color}`}>
                     {ingredient.name}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/70">
+                <p className="mt-3 text-sm leading-relaxed text-muted">
                   {ingredient.description}
                 </p>
               </div>

@@ -1,5 +1,6 @@
 import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
+import CartProvider from "@/components/CartProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${dmSans.variable} font-sans antialiased`}
       >
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

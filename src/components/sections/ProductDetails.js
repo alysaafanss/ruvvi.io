@@ -9,19 +9,19 @@ const PRODUCT_IMAGES = [
 
 export default function ProductDetails() {
   return (
-    <section className="bg-foreground py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <section className="bg-foreground py-20 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
               See the details
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-white/60 sm:text-lg">
+            <p className="mt-4 text-sm leading-relaxed text-white/60 sm:mt-6 sm:text-base lg:text-lg">
               Each pouch is precision-crafted for comfort, consistency, and
               performance. The compact tin fits in any pocket, and the soft
               pouch sits comfortably under the lip without anyone noticing.
             </p>
-            <ul className="mt-8 flex flex-col gap-4">
+            <ul className="mt-6 flex flex-col gap-3 sm:mt-8 sm:gap-4">
               {[
                 "Soft, textile-grade pouch material",
                 "Compact metal tin \u2014 fits in any pocket",
@@ -36,9 +36,9 @@ export default function ProductDetails() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {PRODUCT_IMAGES.map((img) => (
-              <div key={img.label} className="overflow-hidden rounded-3xl">
+              <div key={img.label} className="overflow-hidden rounded-2xl sm:rounded-3xl">
                 <PlaceholderImage label={img.label} aspectRatio={img.aspect} />
               </div>
             ))}
