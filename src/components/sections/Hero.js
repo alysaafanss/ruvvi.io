@@ -27,7 +27,7 @@ export default function Hero({ heroImages = [] }) {
               <h1 className="font-display text-6xl leading-[0.95] tracking-[0.04em] text-foreground sm:text-7xl lg:text-8xl xl:text-9xl">
                 <span className="whitespace-nowrap">
                   FEEL{" "}
-                  <span className="rotate-words text-accent" style={{ height: "1.05em", width: "4.2em" }}>
+                  <span className="rotate-words text-accent" style={{ height: "0.95em", width: "4.2em" }}>
                     {ROTATING_WORDS.map((word) => (
                       <span key={word} aria-hidden={word !== ROTATING_WORDS[0]}>
                         {word}

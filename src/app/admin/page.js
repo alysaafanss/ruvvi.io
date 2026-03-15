@@ -11,6 +11,7 @@ const CATEGORIES = [
   "All",
   "Hero",
   "Carousel",
+  "Showcase",
   "Product",
   "Lifestyle",
   "Ingredients",

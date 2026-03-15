@@ -3,6 +3,7 @@ const BUCKET = "images";
 const CATEGORY_FOLDERS = {
   Hero: "hero",
   Carousel: "carousel",
+  Showcase: "showcase",
   Product: "product",
   Lifestyle: "lifestyle",
   Ingredients: "ingredients",

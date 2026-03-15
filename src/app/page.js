@@ -25,7 +25,7 @@ export default async function Home() {
       <main>
         <Hero heroImages={images.hero} />
         <TrustTicker />
-        <HowItWorks />
+        <HowItWorks images={images.showcase} />
         <WhyRuvvi />
         <WhyPouches />
         <Lifestyle images={images.lifestyle} />

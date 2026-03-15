@@ -48,7 +48,7 @@ html {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 .rotate-words span {
