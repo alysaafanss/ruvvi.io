@@ -12,31 +12,35 @@ import SocialProof from "@/components/sections/SocialProof";
 import Subscription from "@/components/sections/Subscription";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
+import { getAllContent } from "@/lib/getContent";
 import { getAllSectionImages } from "@/lib/getImages";
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const images = await getAllSectionImages();
+  const [content, images] = await Promise.all([
+    getAllContent(),
+    getAllSectionImages(),
+  ]);
 
   return (
     <>
-      <Navbar />
+      <Navbar content={content.navbar} />
       <main>
-        <Hero heroImages={images.hero} />
-        <TrustTicker />
-        <HowItWorks images={images.showcase} />
-        <WhyRuvvi />
-        <WhyPouches />
-        <Lifestyle images={images.lifestyle} />
-        <ProductDetails images={images.product} />
-        <Ingredients ingredientImages={images.ingredients} />
-        <SocialProof />
-        <Subscription />
-        <FAQ />
-        <FinalCTA />
+        <Hero content={content.hero} heroImages={images.hero} />
+        <TrustTicker content={content.trustTicker} />
+        <HowItWorks content={content.showcase} images={images.showcase} />
+        <WhyRuvvi content={content.whyRuvvi} />
+        <WhyPouches content={content.whyPouches} />
+        <Lifestyle content={content.lifestyle} images={images.lifestyle} />
+        <ProductDetails content={content.productDetails} images={images.product} />
+        <Ingredients content={content.ingredients} ingredientImages={images.ingredients} />
+        <SocialProof content={content.socialProof} />
+        <Subscription content={content.subscription} />
+        <FAQ content={content.faq} />
+        <FinalCTA content={content.finalCta} />
       </main>
-      <Footer />
+      <Footer content={content.footer} />
     </>
   );
 }

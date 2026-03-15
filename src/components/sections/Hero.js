@@ -1,10 +1,12 @@
 import Image from "next/image";
 import AddToCartButton from "@/components/AddToCartButton";
 import PlaceholderImage from "@/components/PlaceholderImage";
+import EditableText from "@/components/editor/EditableText";
+import EditableImage from "@/components/editor/EditableImage";
+import { DEFAULTS } from "@/lib/content-defaults";
 
-const ROTATING_WORDS = ["READY.", "CALM.", "SHARP.", "STEADY."];
-
-export default function Hero({ heroImages = [] }) {
+export default function Hero({ content = {}, heroImages = [] }) {
+  const c = { ...DEFAULTS.hero, ...content };
   const mainImage = heroImages[0] || null;
 
   return (
@@ -19,64 +21,51 @@ export default function Hero({ heroImages = [] }) {
                 </svg>
               ))}
               <span className="text-sm text-foreground/70">
-                <span className="font-bold text-accent">4.8</span> stars from <span className="font-bold text-foreground">85,000</span> reviews
+                <EditableText section="hero" field="rating" value={c.rating} tag="span" className="font-bold text-accent" /> stars from <EditableText section="hero" field="reviewCount" value={c.reviewCount} tag="span" className="font-bold text-foreground" /> reviews
               </span>
             </div>
 
             <div className="flex flex-col gap-4 sm:gap-5">
               <h1 className="font-display text-6xl leading-[0.95] tracking-[0.04em] text-foreground sm:text-7xl lg:text-8xl xl:text-9xl">
                 <span className="whitespace-nowrap">
-                  FEEL{" "}
+                  <EditableText section="hero" field="headline" value={c.headline} tag="span" className="" />{" "}
                   <span className="rotate-words text-accent" style={{ height: "0.95em", width: "4.2em" }}>
-                    {ROTATING_WORDS.map((word) => (
-                      <span key={word} aria-hidden={word !== ROTATING_WORDS[0]}>
-                        {word}
-                      </span>
+                    {(c.rotatingWords || []).map((word) => (
+                      <span key={word}>{word}</span>
                     ))}
                   </span>
                 </span>
                 <br />
-                <span className="text-accent">ON DEMAND.</span>
+                <EditableText section="hero" field="accentLine" value={c.accentLine} tag="span" className="text-accent" />
               </h1>
-              <p className="max-w-md text-base leading-relaxed text-muted sm:text-lg">
-                Place under your lip. Premium ingredients absorb fast.
-                No water, no pills, no awkward moments.
-              </p>
+              <EditableText section="hero" field="subtext" value={c.subtext} tag="p" className="max-w-md text-base leading-relaxed text-muted sm:text-lg" />
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <AddToCartButton className="inline-flex items-center justify-center rounded-full border-[3px] border-foreground bg-foreground px-8 py-4 font-display text-base tracking-[0.1em] text-white transition-all hover:bg-foreground/90 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:px-10 sm:py-[18px] sm:text-lg">
-                TRY RUVVI NOW
+                <EditableText section="hero" field="buttonText" value={c.buttonText} tag="span" />
               </AddToCartButton>
               <p className="flex items-center gap-2 text-sm text-muted">
                 <svg className="h-5 w-5 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                 </svg>
-                30-Day Guarantee
+                <EditableText section="hero" field="guarantee" value={c.guarantee} tag="span" />
               </p>
             </div>
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            {mainImage ? (
-              <div className="relative w-full max-w-lg">
-                <Image
-                  src={mainImage}
-                  alt="RUVVI product"
-                  width={800}
-                  height={800}
-                  className="h-auto w-full"
-                  sizes="(max-width: 1024px) 90vw, 50vw"
-                  priority
-                />
-              </div>
-            ) : (
-              <PlaceholderImage
-                label="Product Hero"
-                className="w-full max-w-lg"
-                aspectRatio="aspect-square"
-              />
-            )}
+            <EditableImage
+              src={mainImage}
+              alt="RUVVI product"
+              category="Hero"
+              label="Product Hero"
+              width={800}
+              height={800}
+              className="h-auto w-full"
+              containerClassName="w-full max-w-lg"
+              sizes="(max-width: 1024px) 90vw, 50vw"
+            />
           </div>
         </div>
       </div>

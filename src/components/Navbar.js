@@ -3,17 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "@/components/CartProvider";
+import { DEFAULTS } from "@/lib/content-defaults";
 
-const LEFT_LINKS = [
-  { label: "About", href: "#how-it-works" },
-  { label: "FAQ", href: "#faq" },
-];
-
-const RIGHT_LINKS = [];
-
-const ALL_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS];
-
-export default function Navbar() {
+export default function Navbar({ content = {} }) {
+  const c = { ...DEFAULTS.navbar, ...content };
+  const LEFT_LINKS = c.leftLinks || [];
+  const RIGHT_LINKS = c.rightLinks || [];
+  const ALL_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS];
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { openCart, qty } = useCart();
@@ -62,7 +58,7 @@ export default function Navbar() {
             href="/"
             className="font-display text-2xl tracking-[0.15em] text-white sm:text-3xl md:absolute md:left-1/2 md:-translate-x-1/2"
           >
-            RUVVI
+            {c.brandName}
           </Link>
 
           <div className="flex items-center justify-end gap-3 sm:gap-4 md:flex-1">
@@ -122,7 +118,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="font-display text-2xl tracking-[0.15em] text-white sm:text-3xl"
             >
-              RUVVI
+              {c.brandName}
             </Link>
             <div className="flex items-center gap-3">
               <button
@@ -176,7 +172,7 @@ export default function Navbar() {
           href="/"
           className="font-display text-2xl tracking-[0.15em] text-foreground drop-shadow-sm sm:text-3xl"
         >
-          RUVVI
+          {c.brandName}
         </Link>
       </div>
     </>

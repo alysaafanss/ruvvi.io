@@ -1,19 +1,18 @@
 import AddToCartButton from "@/components/AddToCartButton";
+import EditableText from "@/components/editor/EditableText";
+import { DEFAULTS } from "@/lib/content-defaults";
 
-export default function FinalCTA() {
+export default function FinalCTA({ content = {} }) {
+  const c = { ...DEFAULTS.finalCta, ...content };
+
   return (
     <section id="shop" className="bg-foreground py-24 sm:py-28 lg:py-40">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-4xl font-extrabold tracking-[0.04em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-            Ready for a<br />
-            confidence upgrade?
-          </h2>
-          <p className="mt-4 text-sm text-white/50 sm:mt-6 sm:text-base lg:text-lg">
-            Presence matters. Be the person who never has to think twice.
-          </p>
-          <AddToCartButton className="mt-8 inline-flex items-center rounded-full border-[3px] border-accent bg-accent px-10 py-4 text-sm font-display font-bold tracking-[0.1em] text-foreground transition-all hover:bg-accent-dark hover:border-accent-dark hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-foreground sm:mt-10 sm:px-12 sm:py-[18px] sm:text-base uppercase">
-            SHOP RUVVI
+          <EditableText section="finalCta" field="heading" value={c.heading} tag="h2" className="font-display text-4xl tracking-[0.04em] text-white sm:text-5xl lg:text-6xl xl:text-7xl" />
+          <EditableText section="finalCta" field="subtext" value={c.subtext} tag="p" className="mt-4 text-sm text-white/50 sm:mt-6 sm:text-base lg:text-lg" />
+          <AddToCartButton className="mt-8 inline-flex items-center rounded-full border-[3px] border-accent bg-accent px-10 py-4 font-display text-sm tracking-[0.1em] text-foreground transition-all hover:bg-accent-dark hover:border-accent-dark hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-foreground sm:mt-10 sm:px-12 sm:py-[18px] sm:text-base">
+            <EditableText section="finalCta" field="buttonText" value={c.buttonText} tag="span" />
           </AddToCartButton>
         </div>
       </div>
