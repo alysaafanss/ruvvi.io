@@ -1,7 +1,7 @@
 import ImageMarquee from "@/components/ImageMarquee";
 import AddToCartButton from "@/components/AddToCartButton";
 
-const ROTATING_WORDS = ["ready.", "calm.", "confident.", "present."];
+const ROTATING_WORDS = ["ready.", "calm.", "sharp.", "steady."];
 
 export default function Hero() {
   return (
@@ -21,19 +21,17 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col gap-4 sm:gap-6">
-              <h1 className="font-display text-[2.5rem] font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
-                Confidence
-                <br />
-                on demand.
-                <br />
-                Stay{" "}
-                <span className="rotate-words text-accent" style={{ height: "1.15em", width: "4.5em" }}>
+              <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+                Feel{" "}
+                <span className="rotate-words text-accent" style={{ height: "1.15em", width: "3.5em" }}>
                   {ROTATING_WORDS.map((word) => (
                     <span key={word} aria-hidden={word !== ROTATING_WORDS[0]}>
                       {word}
                     </span>
                   ))}
                 </span>
+                <br />
+                <span className="text-accent">On demand.</span>
               </h1>
               <p className="max-w-md text-sm leading-relaxed text-muted sm:text-base lg:text-lg">
                 Place under your lip. Premium ingredients absorb fast.
