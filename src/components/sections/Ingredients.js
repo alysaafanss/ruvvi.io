@@ -34,10 +34,10 @@ export default function Ingredients() {
     <section id="ingredients" className="bg-secondary-bg py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             What&apos;s inside
           </h2>
-          <p className="mt-4 text-lg text-muted">
+          <p className="mt-4 text-base text-muted sm:text-lg">
             Transparent ingredients. No proprietary blends.
           </p>
         </div>
@@ -46,12 +46,12 @@ export default function Ingredients() {
           {INGREDIENTS.map((ingredient) => (
             <div
               key={ingredient.name}
-              className="rounded-2xl bg-background p-8 transition-shadow hover:shadow-md"
+              className="rounded-2xl border-2 border-transparent bg-background p-8 transition-all hover:border-accent hover:shadow-md"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/20 text-foreground">
                 {ingredient.icon}
               </div>
-              <h3 className="mt-5 text-lg font-medium text-foreground">
+              <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wide text-foreground">
                 {ingredient.name}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">

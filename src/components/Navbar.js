@@ -41,7 +41,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <Link
           href="/"
-          className="text-xl font-medium tracking-[0.25em] text-foreground"
+          className="font-display text-xl font-black uppercase tracking-[0.2em] text-foreground"
         >
           RUVVI
         </Link>
@@ -51,7 +51,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+              className="text-xs font-bold uppercase tracking-widest text-muted transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
             >
               {link.label}
             </a>
@@ -61,7 +61,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <a
             href="#shop"
-            className="inline-flex items-center rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-colors hover:bg-foreground/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="inline-flex items-center rounded-full border-2 border-foreground bg-foreground px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-background transition-all hover:bg-transparent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             Shop RUVVI
           </a>
@@ -78,7 +78,7 @@ export default function Navbar() {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth={1.5}
+            strokeWidth={2}
             aria-hidden="true"
           >
             {menuOpen ? (
@@ -106,7 +106,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-lg font-medium text-foreground transition-colors hover:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded px-2"
+                className="font-display text-2xl font-black uppercase tracking-wider text-foreground transition-colors hover:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded px-2"
               >
                 {link.label}
               </a>
@@ -114,7 +114,7 @@ export default function Navbar() {
             <a
               href="#shop"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 inline-flex items-center rounded-full bg-foreground px-8 py-3 text-base font-medium text-background transition-colors hover:bg-foreground/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="mt-4 inline-flex items-center rounded-full border-2 border-foreground bg-foreground px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-background transition-all hover:bg-transparent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               Shop RUVVI
             </a>

@@ -39,38 +39,38 @@ function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-border">
+    <div className="border-b-2 border-border">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+        className="flex w-full items-center justify-between py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
         aria-expanded={open}
       >
-        <span className="text-base font-medium text-foreground pr-4">
+        <span className="font-display text-base font-bold uppercase tracking-wide text-foreground pr-4 sm:text-lg">
           {question}
         </span>
         <svg
-          className={`h-5 w-5 shrink-0 text-muted transition-transform duration-200 ${
-            open ? "rotate-180" : ""
+          className={`h-5 w-5 shrink-0 text-foreground transition-transform duration-200 ${
+            open ? "rotate-45" : ""
           }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          strokeWidth={1.5}
+          strokeWidth={2}
           aria-hidden="true"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            d="M12 4.5v15m7.5-7.5h-15"
           />
         </svg>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-200 ${
-          open ? "max-h-96 pb-5" : "max-h-0"
+        className={`overflow-hidden transition-all duration-300 ${
+          open ? "max-h-96 pb-6" : "max-h-0"
         }`}
       >
-        <p className="text-sm leading-relaxed text-muted">{answer}</p>
+        <p className="text-sm leading-relaxed text-muted sm:text-base">{answer}</p>
       </div>
     </div>
   );
@@ -81,10 +81,10 @@ export default function FAQ() {
     <section id="faq" className="py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Questions? We&apos;ve got answers.
+          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Got questions?
           </h2>
-          <p className="mt-4 text-lg text-muted">
+          <p className="mt-4 text-base text-muted sm:text-lg">
             Everything you need to know about RUVVI.
           </p>
         </div>

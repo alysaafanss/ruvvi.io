@@ -27,19 +27,27 @@ const TRUST_BADGES = [
   },
 ];
 
+const ROTATING_WORDS = ["READY.", "CALM.", "CONFIDENT.", "PRESENT."];
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-4">
-              <h1 className="text-5xl font-semibold leading-tight tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                Confidence.
+            <div className="flex flex-col gap-6">
+              <h1 className="font-display text-6xl font-black uppercase leading-[0.9] tracking-tight text-foreground sm:text-7xl lg:text-8xl xl:text-9xl">
+                STAY
                 <br />
-                <span className="text-muted">On demand.</span>
+                <span className="rotate-words text-accent-dark" style={{ height: "1.1em" }}>
+                  {ROTATING_WORDS.map((word) => (
+                    <span key={word} className="text-accent-dark" aria-hidden={word !== ROTATING_WORDS[0]}>
+                      {word}
+                    </span>
+                  ))}
+                </span>
               </h1>
-              <p className="max-w-lg text-lg leading-relaxed text-muted">
+              <p className="max-w-lg text-base leading-relaxed text-muted sm:text-lg">
                 Discreet performance pouches designed for presence, control, and
                 moments that matter.
               </p>
@@ -48,26 +56,26 @@ export default function Hero() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="#shop"
-                className="inline-flex items-center justify-center rounded-full bg-foreground px-8 py-3.5 text-sm font-medium text-background transition-colors hover:bg-foreground/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-full border-2 border-foreground bg-foreground px-10 py-4 text-sm font-bold uppercase tracking-widest text-background transition-all hover:bg-transparent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 Shop RUVVI
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center rounded-full border border-foreground/15 px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-full border-2 border-foreground px-10 py-4 text-sm font-bold uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 Learn more
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-6 pt-4">
+            <div className="flex flex-wrap gap-6 pt-2">
               {TRUST_BADGES.map((badge) => (
                 <div
                   key={badge.label}
                   className="flex items-center gap-2 text-muted"
                 >
                   {badge.icon}
-                  <span className="text-xs font-medium uppercase tracking-wider">
+                  <span className="text-xs font-bold uppercase tracking-wider">
                     {badge.label}
                   </span>
                 </div>

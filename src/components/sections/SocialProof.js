@@ -26,10 +26,10 @@ export default function SocialProof() {
     <section className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Real experiences
           </h2>
-          <p className="mt-4 text-lg text-muted">
+          <p className="mt-4 text-base text-muted sm:text-lg">
             From people who stay ready.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function SocialProof() {
           {TESTIMONIALS.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="rounded-2xl border border-border bg-background p-8"
+              className="rounded-2xl border-2 border-border bg-background p-8 transition-all hover:border-foreground/30"
             >
               <div className="flex items-center gap-1 text-accent-dark" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -47,14 +47,14 @@ export default function SocialProof() {
                   </svg>
                 ))}
               </div>
-              <blockquote className="mt-4 text-base leading-relaxed text-foreground">
+              <blockquote className="mt-4 text-base font-medium leading-relaxed text-foreground">
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <div className="mt-5">
-                <p className="text-sm font-medium text-foreground">
+                <p className="text-sm font-bold uppercase tracking-wider text-foreground">
                   {testimonial.name}
                 </p>
-                <p className="text-xs text-muted">{testimonial.detail}</p>
+                <p className="mt-0.5 text-xs text-muted">{testimonial.detail}</p>
               </div>
             </div>
           ))}

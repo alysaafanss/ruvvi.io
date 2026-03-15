@@ -13,15 +13,17 @@ export default function ProductDetails() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              See the details.
+            <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              See the
+              <br />
+              details.
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
+            <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
               Each pouch is precision-crafted for comfort, consistency, and
               performance. The compact tin fits in any pocket, and the soft
               pouch sits comfortably under the lip without anyone noticing.
             </p>
-            <ul className="mt-8 flex flex-col gap-3">
+            <ul className="mt-8 flex flex-col gap-4">
               {[
                 "Soft, textile-grade pouch material",
                 "Compact metal tin — fits in any pocket",
@@ -30,9 +32,9 @@ export default function ProductDetails() {
               ].map((detail) => (
                 <li
                   key={detail}
-                  className="flex items-center gap-3 text-sm text-foreground"
+                  className="flex items-center gap-3 text-sm font-medium text-foreground"
                 >
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-dark" />
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-accent-dark" />
                   {detail}
                 </li>
               ))}

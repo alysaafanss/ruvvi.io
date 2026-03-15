@@ -21,10 +21,10 @@ export default function HowItWorks() {
     <section id="how-it-works" className="py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             How it works
           </h2>
-          <p className="mt-4 text-lg text-muted">
+          <p className="mt-4 text-base text-muted sm:text-lg">
             Three simple steps. No water, no waiting.
           </p>
         </div>
@@ -32,12 +32,12 @@ export default function HowItWorks() {
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12">
           {STEPS.map((step) => (
             <div key={step.number} className="flex flex-col items-center text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-secondary-bg">
-                <span className="text-lg font-semibold text-foreground">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-foreground">
+                <span className="font-display text-2xl font-black text-foreground">
                   {step.number}
                 </span>
               </div>
-              <h3 className="mt-6 text-xl font-medium text-foreground">
+              <h3 className="mt-6 font-display text-xl font-bold uppercase tracking-wide text-foreground">
                 {step.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">

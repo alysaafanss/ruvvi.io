@@ -42,12 +42,12 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t-2 border-border bg-background">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
           <Link
             href="/"
-            className="text-lg font-medium tracking-[0.25em] text-foreground"
+            className="font-display text-xl font-black uppercase tracking-[0.2em] text-foreground"
           >
             RUVVI
           </Link>
@@ -66,19 +66,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center gap-4 border-t border-border pt-8 md:flex-row md:justify-between">
+        <div className="mt-8 flex flex-col items-center gap-4 border-t-2 border-border pt-8 md:flex-row md:justify-between">
           <div className="flex flex-wrap justify-center gap-6">
             {FOOTER_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm text-muted transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+                className="text-xs font-bold uppercase tracking-widest text-muted transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
               >
                 {link.label}
               </Link>
             ))}
           </div>
-          <p className="text-sm text-muted">
+          <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} RUVVI. All rights reserved.
           </p>
         </div>
