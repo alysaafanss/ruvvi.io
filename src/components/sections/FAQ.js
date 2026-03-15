@@ -39,38 +39,40 @@ function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b-2 border-border">
+    <div className="rounded-3xl bg-sage transition-all hover:bg-mint">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+        className="flex w-full items-center justify-between p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 rounded-3xl sm:p-8"
         aria-expanded={open}
       >
-        <span className="font-display text-base font-bold uppercase tracking-wide text-foreground pr-4 sm:text-lg">
+        <span className="font-display text-base font-bold text-foreground pr-4 sm:text-lg">
           {question}
         </span>
-        <svg
-          className={`h-5 w-5 shrink-0 text-foreground transition-transform duration-200 ${
+        <div
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-foreground/10 transition-transform duration-200 ${
             open ? "rotate-45" : ""
           }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-          aria-hidden="true"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 4.5v15m7.5-7.5h-15"
-          />
-        </svg>
+          <svg
+            className="h-4 w-4 text-foreground"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </div>
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-96 pb-6" : "max-h-0"
+          open ? "max-h-96" : "max-h-0"
         }`}
       >
-        <p className="text-sm leading-relaxed text-muted sm:text-base">{answer}</p>
+        <p className="px-6 pb-6 text-sm leading-relaxed text-muted sm:px-8 sm:pb-8 sm:text-base">
+          {answer}
+        </p>
       </div>
     </div>
   );
@@ -78,10 +80,10 @@ function FAQItem({ question, answer }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 lg:py-32">
+    <section id="faq" className="bg-background py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
             Got questions?
           </h2>
           <p className="mt-4 text-base text-muted sm:text-lg">
@@ -89,7 +91,7 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-12 flex flex-col gap-3">
           {QUESTIONS.map((q) => (
             <FAQItem key={q.question} question={q.question} answer={q.answer} />
           ))}

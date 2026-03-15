@@ -1,6 +1,6 @@
 const BENEFITS = [
   {
-    title: "Fast Absorbing",
+    title: "Fast absorbing",
     description: "Sublingual delivery means ingredients get to work in minutes, not hours.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
@@ -27,7 +27,7 @@ const BENEFITS = [
     ),
   },
   {
-    title: "Sugar Free",
+    title: "Sugar free",
     description: "Clean formula. No sugar, no artificial sweeteners.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
@@ -36,7 +36,7 @@ const BENEFITS = [
     ),
   },
   {
-    title: "Premium Ingredients",
+    title: "Premium ingredients",
     description: "Clinically studied compounds. No fillers, no compromises.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
@@ -48,30 +48,30 @@ const BENEFITS = [
 
 export default function WhyRuvvi() {
   return (
-    <section className="bg-secondary-bg py-24 lg:py-32">
+    <section className="bg-foreground py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Why RUVVI
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Built different
           </h2>
-          <p className="mt-4 text-base text-muted sm:text-lg">
+          <p className="mt-4 text-base text-white/60 sm:text-lg">
             Engineered for the moments that count.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {BENEFITS.map((benefit) => (
             <div
               key={benefit.title}
-              className="rounded-2xl border-2 border-transparent bg-background p-8 transition-all hover:border-accent hover:shadow-md"
+              className="rounded-3xl bg-white/10 p-8 transition-all hover:bg-white/15"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/20 text-foreground">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/20 text-accent">
                 {benefit.icon}
               </div>
-              <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wide text-foreground">
+              <h3 className="mt-5 font-display text-lg font-bold text-white">
                 {benefit.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
+              <p className="mt-2 text-sm leading-relaxed text-white/60">
                 {benefit.description}
               </p>
             </div>

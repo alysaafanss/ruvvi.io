@@ -1,93 +1,78 @@
-import PlaceholderImage from "@/components/PlaceholderImage";
+import ImageMarquee from "@/components/ImageMarquee";
 
-const TRUST_BADGES = [
-  {
-    label: "Discreet Format",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-      </svg>
-    ),
-  },
-  {
-    label: "Fast Absorption",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Sugar Free",
-    icon: (
-      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-    ),
-  },
-];
-
-const ROTATING_WORDS = ["READY.", "CALM.", "CONFIDENT.", "PRESENT."];
+const ROTATING_WORDS = ["ready.", "calm.", "confident.", "present."];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20">
+    <section className="relative min-h-screen overflow-hidden bg-mint pt-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col gap-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5 lg:gap-8">
+          <div className="flex flex-col gap-8 lg:col-span-3">
             <div className="flex flex-col gap-6">
-              <h1 className="font-display text-6xl font-black uppercase leading-[0.9] tracking-tight text-foreground sm:text-7xl lg:text-8xl xl:text-9xl">
-                STAY
+              <p className="font-display text-sm font-semibold text-accent-dark">
+                Discreet performance pouches
+              </p>
+              <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+                Confidence
                 <br />
-                <span className="rotate-words text-accent-dark" style={{ height: "1.1em" }}>
+                on demand.
+                <br />
+                Stay{" "}
+                <span className="rotate-words text-accent-dark" style={{ height: "1.15em", width: "5.5em" }}>
                   {ROTATING_WORDS.map((word) => (
-                    <span key={word} className="text-accent-dark" aria-hidden={word !== ROTATING_WORDS[0]}>
+                    <span key={word} aria-hidden={word !== ROTATING_WORDS[0]}>
                       {word}
                     </span>
                   ))}
                 </span>
               </h1>
-              <p className="max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-                Discreet performance pouches designed for presence, control, and
-                moments that matter.
+              <p className="max-w-md text-base leading-relaxed text-foreground/70 sm:text-lg">
+                Place under your lip. Premium ingredients absorb fast.
+                No water, no pills, no awkward moments.
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href="#shop"
-                className="inline-flex items-center justify-center rounded-full border-2 border-foreground bg-foreground px-10 py-4 text-sm font-bold uppercase tracking-widest text-background transition-all hover:bg-transparent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-full bg-foreground px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-foreground/85 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2"
               >
-                Shop RUVVI
+                Try RUVVI now
               </a>
-              <a
-                href="#how-it-works"
-                className="inline-flex items-center justify-center rounded-full border-2 border-foreground px-10 py-4 text-sm font-bold uppercase tracking-widest text-foreground transition-all hover:bg-foreground hover:text-background focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-              >
-                Learn more
-              </a>
+              <p className="flex items-center gap-2 text-sm text-foreground/60">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                </svg>
+                30 day risk-free trial
+              </p>
             </div>
 
-            <div className="flex flex-wrap gap-6 pt-2">
-              {TRUST_BADGES.map((badge) => (
-                <div
-                  key={badge.label}
-                  className="flex items-center gap-2 text-muted"
+            <div className="flex flex-wrap gap-4 pt-2">
+              {["Discreet format", "Fast absorption", "Sugar free"].map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full bg-white/50 px-4 py-1.5 text-xs font-semibold text-foreground/80"
                 >
-                  {badge.icon}
-                  <span className="text-xs font-bold uppercase tracking-wider">
-                    {badge.label}
-                  </span>
-                </div>
+                  {badge}
+                </span>
               ))}
             </div>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
-            <PlaceholderImage
-              label="Product Hero"
-              className="w-full max-w-md"
-              aspectRatio="aspect-[4/5]"
+          <div className="hidden h-[600px] lg:col-span-2 lg:flex lg:gap-4 lg:justify-end">
+            <ImageMarquee className="w-44 rounded-2xl" />
+            <ImageMarquee
+              className="w-44 rounded-2xl mt-12"
+              items={[
+                "Getting ready",
+                "Night out",
+                "Pouch texture",
+                "Pocket shot",
+                "Scale reference",
+                "Tin design",
+                "Social proof",
+                "UGC content",
+              ]}
             />
           </div>
         </div>

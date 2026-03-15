@@ -23,10 +23,10 @@ const TESTIMONIALS = [
 
 export default function SocialProof() {
   return (
-    <section className="py-24 lg:py-32">
+    <section className="bg-background py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
             Real experiences
           </h2>
           <p className="mt-4 text-base text-muted sm:text-lg">
@@ -34,11 +34,11 @@ export default function SocialProof() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {TESTIMONIALS.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="rounded-2xl border-2 border-border bg-background p-8 transition-all hover:border-foreground/30"
+              className="rounded-3xl bg-sage p-8 transition-all hover:bg-mint"
             >
               <div className="flex items-center gap-1 text-accent-dark" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -51,7 +51,7 @@ export default function SocialProof() {
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <div className="mt-5">
-                <p className="text-sm font-bold uppercase tracking-wider text-foreground">
+                <p className="text-sm font-bold text-foreground">
                   {testimonial.name}
                 </p>
                 <p className="mt-0.5 text-xs text-muted">{testimonial.detail}</p>

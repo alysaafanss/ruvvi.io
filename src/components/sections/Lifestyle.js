@@ -9,11 +9,11 @@ const SCENARIOS = [
 
 export default function Lifestyle() {
   return (
-    <section className="bg-secondary-bg py-24 lg:py-32">
+    <section className="bg-background py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-4xl font-black uppercase tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Keep one on you.
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+            Keep one on you
           </h2>
           <p className="mt-4 text-base text-muted sm:text-lg">
             Designed for the moments between the moments.
@@ -22,7 +22,7 @@ export default function Lifestyle() {
 
         <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
           {SCENARIOS.map((scenario) => (
-            <div key={scenario.label} className={scenario.span}>
+            <div key={scenario.label} className={`${scenario.span} overflow-hidden rounded-3xl`}>
               <PlaceholderImage
                 label={scenario.label}
                 className="h-full w-full min-h-[200px]"

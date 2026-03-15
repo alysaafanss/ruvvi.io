@@ -31,37 +31,43 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+      <div
+        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/90 shadow-lg backdrop-blur-md"
+            : "bg-white/70 backdrop-blur-sm"
+        }`}
+      >
         <Link
           href="/"
-          className="font-display text-xl font-black uppercase tracking-[0.2em] text-foreground"
+          className="font-display text-lg font-extrabold tracking-tight text-foreground"
         >
-          RUVVI
+          ruvvi
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-xs font-bold uppercase tracking-widest text-muted transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+              className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark rounded-lg px-1"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href="#how-it-works"
+            className="rounded-full px-5 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-foreground/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark"
+          >
+            Learn more
+          </a>
           <a
             href="#shop"
-            className="inline-flex items-center rounded-full border-2 border-foreground bg-foreground px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-background transition-all hover:bg-transparent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="rounded-full bg-foreground px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-foreground/85 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2"
           >
             Shop RUVVI
           </a>
@@ -69,12 +75,12 @@ export default function Navbar() {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex items-center justify-center rounded-md p-2 md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="flex items-center justify-center rounded-full p-2 md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
           <svg
-            className="h-6 w-6 text-foreground"
+            className="h-5 w-5 text-foreground"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -82,31 +88,23 @@ export default function Navbar() {
             aria-hidden="true"
           >
             {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18 18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 9h16.5m-16.5 6.75h16.5"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
             )}
           </svg>
         </button>
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 top-[64px] bg-background/98 backdrop-blur-md md:hidden">
-          <div className="flex flex-col items-center gap-8 pt-16">
+        <div className="fixed inset-0 top-[72px] bg-white/95 backdrop-blur-lg md:hidden">
+          <div className="flex flex-col items-center gap-6 pt-12">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-display text-2xl font-black uppercase tracking-wider text-foreground transition-colors hover:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded px-2"
+                className="font-display text-2xl font-bold text-foreground"
               >
                 {link.label}
               </a>
@@ -114,7 +112,7 @@ export default function Navbar() {
             <a
               href="#shop"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 inline-flex items-center rounded-full border-2 border-foreground bg-foreground px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-background transition-all hover:bg-transparent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="mt-4 rounded-full bg-foreground px-10 py-3.5 text-base font-semibold text-white"
             >
               Shop RUVVI
             </a>

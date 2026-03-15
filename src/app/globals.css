@@ -3,9 +3,11 @@
 :root {
   --background: #F5F0EB;
   --foreground: #1C1C1C;
-  --accent: #A8D5BA;
-  --accent-dark: #8EC5A4;
-  --secondary-bg: #EDE8E3;
+  --accent: #C1E8CF;
+  --accent-dark: #43A047;
+  --secondary-bg: #E4EDE6;
+  --mint: #C1E8CF;
+  --sage: #E4EDE6;
   --muted: #6B6B6B;
   --border: #D9D4CF;
 }
@@ -16,6 +18,8 @@
   --color-accent: var(--accent);
   --color-accent-dark: var(--accent-dark);
   --color-secondary-bg: var(--secondary-bg);
+  --color-mint: var(--mint);
+  --color-sage: var(--sage);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --font-sans: var(--font-inter);
@@ -33,26 +37,11 @@ html {
 }
 
 @keyframes slide-up {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  10% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  30% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  40% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
+  0% { transform: translateY(100%); opacity: 0; }
+  10% { transform: translateY(0%); opacity: 1; }
+  30% { transform: translateY(0%); opacity: 1; }
+  40% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(-100%); opacity: 0; }
 }
 
 .rotate-words {
@@ -76,3 +65,16 @@ html {
 .rotate-words span:nth-child(2) { animation-delay: 2s; }
 .rotate-words span:nth-child(3) { animation-delay: 4s; }
 .rotate-words span:nth-child(4) { animation-delay: 6s; }
+
+@keyframes marquee-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.marquee-track {
+  animation: marquee-up 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
