@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useCallback, useRef } from "react";
 import { saveBulkContentAction } from "@/app/admin/content-actions";
+import { logout } from "@/app/admin/login/actions";
 import { DEFAULTS } from "@/lib/content-defaults";
 
 const EditorContext = createContext(null);
@@ -115,6 +116,15 @@ export default function EditorProvider({ children, initialContent = {} }) {
           >
             Media
           </a>
+          <div className="h-4 w-px bg-white/20" />
+          <form action={logout} className="flex">
+            <button
+              type="submit"
+              className="text-xs font-medium text-white/60 hover:text-red-400 transition-colors"
+            >
+              Logout
+            </button>
+          </form>
         </div>
       </div>
     </EditorContext.Provider>

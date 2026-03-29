@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getImagesAction, uploadImageAction, deleteImageAction } from "../actions";
+import LogoutButton from "@/components/LogoutButton";
 import { formatFileSize } from "@/lib/supabase/storage";
 import ImageCropper from "@/components/ImageCropper";
 
@@ -280,12 +281,15 @@ export default function AdminPage() {
               Media Gallery
             </h1>
           </div>
-          <Link
-            href="/"
-            className="rounded-full border-2 border-white/30 px-5 py-2 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
-          >
-            View site
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="rounded-full border-2 border-white/30 px-5 py-2 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
+            >
+              View site
+            </Link>
+            <LogoutButton />
+          </div>
         </div>
       </header>
 

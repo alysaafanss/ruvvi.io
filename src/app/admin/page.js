@@ -13,6 +13,7 @@ import Subscription from "@/components/sections/Subscription";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import EditorProvider from "@/components/editor/EditorProvider";
+import LogoutButton from "@/components/LogoutButton";
 import { getAllContent } from "@/lib/getContent";
 import { getAllSectionImages } from "@/lib/getImages";
 
