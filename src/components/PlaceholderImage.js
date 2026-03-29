@@ -6,9 +6,9 @@ export default function PlaceholderImage({
 }) {
   return (
     <div
-      className={`flex items-center justify-center bg-secondary-bg border border-border rounded-lg ${aspectRatio} ${className}`}
+      className={`flex items-center justify-center bg-surface border border-border ${aspectRatio} ${className}`}
     >
-      <div className="flex flex-col items-center gap-2 text-muted">
+      <div className="flex flex-col items-center gap-2 text-muted/30">
         {icon || (
           <svg
             className="w-8 h-8"
@@ -25,7 +25,7 @@ export default function PlaceholderImage({
             />
           </svg>
         )}
-        <span className="text-xs font-medium tracking-wide uppercase">
+        <span className="text-[10px] tracking-[0.2em] uppercase">
           {label}
         </span>
       </div>
