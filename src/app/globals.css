@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EDF5E8;
-  --foreground: #14532D;
-  --accent: #D4930D;
-  --accent-dark: #B07A0A;
-  --secondary-bg: #DCF0D5;
-  --mint: #C8E6C0;
-  --sage: #DCF0D5;
-  --muted: #5A7D60;
-  --border: #B8D4B0;
+  --background: #171311;
+  --foreground: #F3ECE2;
+  --accent: #7B9284;
+  --accent-dark: #667B6E;
+  --secondary-bg: #201A17;
+  --surface: #1E1916;
+  --muted: #B7AEA2;
+  --border: #2A2320;
+  --oxblood: #5B2D33;
 }
 
 @theme inline {
@@ -18,12 +18,12 @@
   --color-accent: var(--accent);
   --color-accent-dark: var(--accent-dark);
   --color-secondary-bg: var(--secondary-bg);
-  --color-mint: var(--mint);
-  --color-sage: var(--sage);
+  --color-surface: var(--surface);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-oxblood: var(--oxblood);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-bebas);
+  --font-display: var(--font-cormorant);
 }
 
 body {
@@ -36,6 +36,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Rotating words animation */
 @keyframes slide-up {
   0% { transform: translateY(100%); opacity: 0; }
   10% { transform: translateY(0%); opacity: 1; }
@@ -66,6 +67,7 @@ html {
 .rotate-words span:nth-child(3) { animation-delay: 4s; }
 .rotate-words span:nth-child(4) { animation-delay: 6s; }
 
+/* Vertical marquee */
 @keyframes marquee-up {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
@@ -79,25 +81,7 @@ html {
   animation-play-state: paused;
 }
 
-@keyframes slider-in-right {
-  from { transform: translateX(60px) scale(0.92); opacity: 0; }
-  to   { transform: translateX(0) scale(1); opacity: 1; }
-}
-
-@keyframes slider-in-left {
-  from { transform: translateX(-60px) scale(0.92); opacity: 0; }
-  to   { transform: translateX(0) scale(1); opacity: 1; }
-}
-
-@keyframes fade-up-in {
-  from { transform: translateY(16px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-.slide-from-right { animation: slider-in-right 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.slide-from-left  { animation: slider-in-left  0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.fade-up          { animation: fade-up-in       0.4s  cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
-
+/* Horizontal marquee */
 @keyframes marquee-left {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -105,4 +89,73 @@ html {
 
 .marquee-horizontal {
   animation: marquee-left 30s linear infinite;
+}
+
+/* Slide animations — slow and premium */
+@keyframes slider-in-right {
+  from { transform: translateX(40px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slider-in-left {
+  from { transform: translateX(-40px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-up-in {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.slide-from-right { animation: slider-in-right 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.slide-from-left  { animation: slider-in-left  0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fade-up          { animation: fade-up-in       0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+
+/* Gradient blur atmosphere */
+@keyframes gradient-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-2%, 1%) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.gradient-blur {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: gradient-drift 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.gradient-blur-secondary {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  animation: gradient-drift 16s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+/* Glass block accent */
+.glass-panel {
+  background: rgba(243, 236, 226, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(243, 236, 226, 0.06);
+}
+
+/* Scroll reveal — subtle upward motion */
+@keyframes reveal-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.reveal-on-scroll {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Thin rule / divider utility */
+.thin-rule {
+  height: 1px;
+  background: var(--border);
 }

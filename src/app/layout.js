@@ -1,4 +1,4 @@
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import CartProvider from "@/components/CartProvider";
 
@@ -7,10 +7,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const bebas = Bebas_Neue({
-  variable: "--font-bebas",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -22,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${bebas.variable} antialiased`}>
+      <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
         <CartProvider>{children}</CartProvider>
       </body>
     </html>
