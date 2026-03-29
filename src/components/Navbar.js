@@ -35,8 +35,7 @@ export default function Navbar({ content = {} }) {
     <>
       {/* Full navbar — visible at top, hides on scroll */}
       <nav
-        style={{ backgroundColor: "#8B0000" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-foreground transition-all duration-500 ${
           scrolled && !menuOpen
             ? "-translate-y-full opacity-0"
             : "translate-y-0 opacity-100"
