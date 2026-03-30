@@ -1,161 +1,100 @@
 @import "tailwindcss";
 
 :root {
-  --background: #171311;
-  --foreground: #F3ECE2;
-  --accent: #7B9284;
-  --accent-dark: #667B6E;
-  --secondary-bg: #201A17;
-  --surface: #1E1916;
-  --muted: #B7AEA2;
-  --border: #2A2320;
-  --oxblood: #5B2D33;
+  --background: #0A0A0A;
+  --foreground: #F5F0E8;
+  --accent: #C8956C;
+  --accent-light: #D4A57C;
+  --secondary-bg: #1A1A1A;
+  --muted: #9B9389;
+  --border: #333333;
+  --error: #C75050;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
-  --color-accent-dark: var(--accent-dark);
+  --color-accent-light: var(--accent-light);
   --color-secondary-bg: var(--secondary-bg);
-  --color-surface: var(--surface);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  --color-oxblood: var(--oxblood);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-cormorant);
+  --color-error: var(--error);
+  --font-sans: var(--font-bdsans);
+  --font-display: var(--font-seasons);
+  --font-script: var(--font-bdscript);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-bdsans), system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Rotating words animation */
-@keyframes slide-up {
-  0% { transform: translateY(100%); opacity: 0; }
-  10% { transform: translateY(0%); opacity: 1; }
-  30% { transform: translateY(0%); opacity: 1; }
-  40% { transform: translateY(-100%); opacity: 0; }
-  100% { transform: translateY(-100%); opacity: 0; }
+/* ── Coming Soon: entrance animations ── */
+
+@keyframes cs-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.rotate-words {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  vertical-align: top;
+@keyframes cs-fade-only {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.rotate-words span {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transform: translateY(100%);
-  animation: slide-up 8s infinite;
+@keyframes cs-bg-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.rotate-words span:nth-child(1) { animation-delay: 0s; }
-.rotate-words span:nth-child(2) { animation-delay: 2s; }
-.rotate-words span:nth-child(3) { animation-delay: 4s; }
-.rotate-words span:nth-child(4) { animation-delay: 6s; }
+.cs-bg      { animation: cs-bg-fade   1.5s ease-out both; }
+.cs-logo    { animation: cs-fade-in   1.2s ease-out 0.3s both; }
+.cs-headline{ animation: cs-fade-in   1.0s ease-out 0.6s both; }
+.cs-sub     { animation: cs-fade-only 0.8s ease-out 0.9s both; }
+.cs-form    { animation: cs-fade-in   0.8s ease-out 1.2s both; }
+.cs-props   { animation: cs-fade-only 0.6s ease-out 1.5s both; }
 
-/* Vertical marquee */
-@keyframes marquee-up {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+/* ── Form error shake ── */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-4px); }
+  40%      { transform: translateX(4px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
 }
 
-.marquee-track {
-  animation: marquee-up 20s linear infinite;
+.shake {
+  animation: shake 0.3s ease;
 }
 
-.marquee-track:hover {
-  animation-play-state: paused;
+/* ── Form step transitions ── */
+
+@keyframes step-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
-/* Horizontal marquee */
-@keyframes marquee-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes step-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.marquee-horizontal {
-  animation: marquee-left 30s linear infinite;
-}
+.step-exit  { animation: step-out 0.3s ease both; }
+.step-enter { animation: step-in  0.3s ease 0.3s both; }
 
-/* Slide animations — slow and premium */
-@keyframes slider-in-right {
-  from { transform: translateX(40px); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
-}
+/* ── Respect reduced motion ── */
 
-@keyframes slider-in-left {
-  from { transform: translateX(-40px); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes fade-up-in {
-  from { transform: translateY(12px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-.slide-from-right { animation: slider-in-right 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.slide-from-left  { animation: slider-in-left  0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.fade-up          { animation: fade-up-in       0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
-
-/* Gradient blur atmosphere */
-@keyframes gradient-drift {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(-2%, 1%) scale(1.02); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-
-.gradient-blur {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  animation: gradient-drift 12s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.gradient-blur-secondary {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.2;
-  animation: gradient-drift 16s ease-in-out infinite reverse;
-  pointer-events: none;
-}
-
-/* Glass block accent */
-.glass-panel {
-  background: rgba(243, 236, 226, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(243, 236, 226, 0.06);
-}
-
-/* Scroll reveal — subtle upward motion */
-@keyframes reveal-up {
-  from { transform: translateY(20px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-.reveal-on-scroll {
-  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Thin rule / divider utility */
-.thin-rule {
-  height: 1px;
-  background: var(--border);
+@media (prefers-reduced-motion: reduce) {
+  .cs-bg, .cs-logo, .cs-headline, .cs-sub, .cs-form, .cs-props,
+  .shake, .step-exit, .step-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
