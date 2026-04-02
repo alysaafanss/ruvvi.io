@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { createClient } from "@/lib/supabase/client";
 
 /* ─── helpers ─── */
 
@@ -27,73 +29,44 @@ function formatPhone(raw) {
   return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
 }
 
-/* ─── Klaviyo subscribe (client-side API) ─── */
+/* ─── Supabase waitlist subscribe ─── */
 
-async function subscribeToKlaviyo({ email, phone }) {
+async function subscribeToWaitlist({ email, phone, referredBy }) {
   const utm = getUtmParams();
-  const properties = {
-    source: "coming_soon_page",
-    signup_date: new Date().toISOString(),
-    ...utm,
-  };
+  const supabase = createClient();
 
-  // Klaviyo List Subscribe API v3
-  // Replace LIST_ID with your actual Klaviyo list ID for "Pre-Launch Waitlist"
-  const KLAVIYO_LIST_ID = "REPLACE_WITH_KLAVIYO_LIST_ID";
-  const KLAVIYO_API_KEY = "REPLACE_WITH_KLAVIYO_PUBLIC_API_KEY";
-
-  const profile = {
-    type: "profile",
-    attributes: {
-      email,
-      properties,
-    },
+  const row = {
+    email,
+    utm_source: utm.utm_source || null,
+    utm_medium: utm.utm_medium || null,
+    utm_campaign: utm.utm_campaign || null,
+    referred_by: referredBy || null,
   };
 
   if (phone) {
-    const cleaned = phone.replace(/\D/g, "");
-    profile.attributes.phone_number = `+1${cleaned}`;
+    row.phone = `+1${phone.replace(/\D/g, "")}`;
   }
 
   try {
-    await fetch(`https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_API_KEY}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", revision: "2024-02-15" },
-      body: JSON.stringify({
-        data: {
-          type: "subscription",
-          attributes: {
-            profile: { data: profile },
-            custom_source: "coming_soon_page",
-          },
-          relationships: {
-            list: { data: { type: "list", id: KLAVIYO_LIST_ID } },
-          },
-        },
-      }),
-    });
+    const { error } = await supabase.from("waitlist").upsert(row, { onConflict: "email" });
 
-    // Fire analytics events
+    if (error) {
+      console.error("Waitlist insert failed:", error.message, error.details, error.hint);
+    }
+
     if (typeof window !== "undefined") {
-      // GA4
       if (window.gtag) {
         window.gtag("event", email && !phone ? "email_signup" : "phone_signup", {
           event_category: "waitlist",
         });
       }
-      // Meta Pixel
-      if (window.fbq) {
-        window.fbq("track", "Lead");
-      }
-      // TikTok Pixel
-      if (window.ttq) {
-        window.ttq.track("SubmitForm");
-      }
+      if (window.fbq) window.fbq("track", "Lead");
+      if (window.ttq) window.ttq.track("SubmitForm");
     }
 
-    return { ok: true };
+    return { ok: !error };
   } catch {
-    return { ok: true }; // fail silently for now — don't block UX
+    return { ok: false };
   }
 }
 
@@ -156,7 +129,7 @@ export default function ComingSoon() {
     }
 
     setLoading(true);
-    await subscribeToKlaviyo({ email, phone: null });
+    await subscribeToWaitlist({ email, phone: null });
     setLoading(false);
 
     // Transition to phone step
@@ -177,7 +150,7 @@ export default function ComingSoon() {
     }
 
     setLoading(true);
-    await subscribeToKlaviyo({ email, phone });
+    await subscribeToWaitlist({ email, phone });
     setLoading(false);
 
     setTransitioning(true);
@@ -203,11 +176,12 @@ export default function ComingSoon() {
 
   return (
     <div className="cs-bg relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 sm:px-6"
-      style={{
-        background: "radial-gradient(ellipse at 50% 40%, rgba(200, 149, 108, 0.08) 0%, rgba(10, 10, 10, 1) 70%)",
-      }}
+      style={{ background: "#0A0A0A" }}
     >
-      {/* Subtle noise texture overlay */}
+      {/* Breathing copper glow */}
+      <div className="cs-glow pointer-events-none absolute inset-0 z-0" />
+
+      {/* Subtle grain/noise texture at 2-3% opacity */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
@@ -220,10 +194,17 @@ export default function ComingSoon() {
       {/* ── Content container ── */}
       <div className="relative z-10 flex w-full max-w-[520px] flex-col items-center text-center">
 
-        {/* Logo */}
-        <h1 className="cs-logo text-[28px] font-medium tracking-[0.25em] text-foreground sm:text-[36px]">
-          RUVVI
-        </h1>
+        {/* Logo — approved bold wordmark */}
+        <div className="cs-logo">
+          <Image
+            src="/ruvvi-logo.png"
+            alt="RUVVI"
+            width={693}
+            height={137}
+            priority
+            className="w-[45vw] max-w-[220px] h-auto sm:w-[220px]"
+          />
+        </div>
 
         {/* Headline */}
         <h2 className="cs-headline mt-8 font-display text-[32px] font-normal leading-[1.1] tracking-[0.03em] text-foreground sm:mt-12 sm:text-[56px] md:text-[64px]">
