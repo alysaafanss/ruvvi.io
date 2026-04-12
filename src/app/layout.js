@@ -1,5 +1,12 @@
 import localFont from "next/font/local";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dmsans",
+  display: "swap",
+});
 
 const theSeasons = localFont({
   src: [
@@ -7,15 +14,6 @@ const theSeasons = localFont({
     { path: "../fonts/TheSeasons-Bold.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-seasons",
-  display: "swap",
-});
-
-const bdSans = localFont({
-  src: [
-    { path: "../fonts/BDSans-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/BDSans-Black.woff2", weight: "900", style: "normal" },
-  ],
-  variable: "--font-bdsans",
   display: "swap",
 });
 
@@ -58,7 +56,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${theSeasons.variable} ${bdSans.variable} ${bdScript.variable} antialiased`}>
+      <body className={`${dmSans.variable} ${theSeasons.variable} ${bdScript.variable} antialiased`}>
         {children}
       </body>
     </html>

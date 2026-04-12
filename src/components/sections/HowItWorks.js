@@ -18,7 +18,7 @@ export default function HowItWorks({ content = {}, images = [] }) {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-[10px] tracking-[0.3em] uppercase text-accent mb-3">3-Step System</p>
-          <EditableText section="showcase" field="heading" value={c.heading} tag="h2" className="font-display text-4xl font-light tracking-[0.02em] text-foreground sm:text-5xl lg:text-6xl" />
+          <EditableText section="showcase" field="heading" value={c.heading} tag="h2" className="text-4xl font-light tracking-[0.02em] text-foreground sm:text-5xl lg:text-6xl" />
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-px bg-border sm:mt-20 lg:grid-cols-3">
@@ -30,7 +30,7 @@ export default function HowItWorks({ content = {}, images = [] }) {
                 </div>
                 <span className="text-[10px] tracking-[0.3em] uppercase text-muted/40">Step {i + 1}</span>
               </div>
-              <h3 className="font-display text-2xl font-light tracking-[0.02em] text-foreground sm:text-3xl">
+              <h3 className="text-2xl font-light tracking-[0.02em] text-foreground sm:text-3xl">
                 {step.name}
               </h3>
               <div className="thin-rule mt-4 mb-4 w-8" />

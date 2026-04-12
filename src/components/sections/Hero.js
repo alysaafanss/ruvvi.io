@@ -30,7 +30,7 @@ export default function Hero({ content = {}, heroImages = [] }) {
             </div>
 
             <div className="flex flex-col gap-4 sm:gap-5">
-              <h1 className="font-display text-6xl font-light leading-[0.95] tracking-[0.02em] text-foreground sm:text-7xl lg:text-8xl xl:text-9xl">
+              <h1 className="text-6xl font-light leading-[0.95] tracking-[0.02em] text-foreground sm:text-7xl lg:text-8xl xl:text-9xl">
                 <span className="whitespace-nowrap">
                   <EditableText section="hero" field="headline" value={c.headline} tag="span" className="" />{" "}
                   <span className="rotate-words text-accent" style={{ height: "0.95em", width: "4.2em" }}>

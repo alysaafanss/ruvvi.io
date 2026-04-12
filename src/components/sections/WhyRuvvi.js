@@ -17,7 +17,7 @@ export default function WhyRuvvi({ content = {} }) {
       <div className="thin-rule mx-auto max-w-7xl mb-16 sm:mb-20" />
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <EditableText section="whyRuvvi" field="heading" value={c.heading} tag="h2" className="font-display text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
+          <EditableText section="whyRuvvi" field="heading" value={c.heading} tag="h2" className="text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
           <EditableText section="whyRuvvi" field="subtext" value={c.subtext} tag="p" className="mt-3 text-sm text-muted/70 sm:mt-4 sm:text-base lg:text-lg" />
         </div>
 

@@ -277,7 +277,7 @@ export default function AdminPage() {
               RUVVI
             </Link>
             <span className="text-white/30">/</span>
-            <h1 className="font-display text-lg tracking-wide text-white">
+            <h1 className="text-lg tracking-wide text-white">
               Media Gallery
             </h1>
           </div>

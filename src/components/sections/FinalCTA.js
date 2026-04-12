@@ -13,7 +13,7 @@ export default function FinalCTA({ content = {} }) {
 
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 relative z-10">
         <div className="mx-auto max-w-3xl text-center">
-          <EditableText section="finalCta" field="heading" value={c.heading} tag="h2" className="font-display text-4xl font-light tracking-[0.02em] text-foreground sm:text-5xl lg:text-6xl xl:text-7xl" />
+          <EditableText section="finalCta" field="heading" value={c.heading} tag="h2" className="text-4xl font-light tracking-[0.02em] text-foreground sm:text-5xl lg:text-6xl xl:text-7xl" />
           <EditableText section="finalCta" field="subtext" value={c.subtext} tag="p" className="mt-4 text-sm text-muted/50 sm:mt-6 sm:text-base lg:text-lg" />
           <AddToCartButton className="mt-8 inline-flex items-center border border-accent bg-accent px-10 py-4 text-xs tracking-[0.2em] uppercase text-background transition-all duration-300 hover:bg-accent-dark hover:border-accent-dark focus:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-secondary-bg sm:mt-10 sm:px-12 sm:py-4.5 sm:text-sm">
             <EditableText section="finalCta" field="buttonText" value={c.buttonText} tag="span" />

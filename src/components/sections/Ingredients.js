@@ -61,7 +61,7 @@ export default function Ingredients({ content = {}, ingredientImages = [] }) {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
           <p className="text-[10px] tracking-[0.3em] uppercase text-accent mb-3">Clinically Studied</p>
-          <EditableText section="ingredients" field="heading" value={c.heading} tag="h2" className="font-display text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
+          <EditableText section="ingredients" field="heading" value={c.heading} tag="h2" className="text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
           <div className="mt-6 flex items-center justify-center gap-2">
             {items.map((_, i) => (
               <button key={i} onClick={() => { setDirection(i > current ? "right" : "left"); setCurrent(i); }}
@@ -94,7 +94,7 @@ export default function Ingredients({ content = {}, ingredientImages = [] }) {
 
         <div key={`text-${current}`} className="fade-up mx-auto mt-8 max-w-lg text-center sm:mt-10">
           <p className="text-[10px] tracking-[0.3em] uppercase text-accent">{ingredient.category}</p>
-          <h3 className="mt-2 font-display text-2xl font-light tracking-[0.02em] text-foreground sm:text-3xl lg:text-4xl">{ingredient.name}</h3>
+          <h3 className="mt-2 text-2xl font-light tracking-[0.02em] text-foreground sm:text-3xl lg:text-4xl">{ingredient.name}</h3>
           <div className="thin-rule mx-auto mt-4 mb-4 w-12" />
           <p className="text-sm leading-relaxed text-muted/70 sm:text-base"><span className="text-foreground/80">Main benefits: </span>{ingredient.benefits}</p>
           <p className="mt-3 text-sm leading-relaxed text-muted/50 sm:text-base"><span className="text-foreground/60">How it works: </span>{ingredient.origin}</p>

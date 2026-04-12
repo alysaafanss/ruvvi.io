@@ -74,7 +74,7 @@ export default function ImageCropper({ imageSrc, fileName, onCrop, onCancel }) {
     <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/70 p-4">
       <div className="flex w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl">
         <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
-          <h3 className="font-display text-xl tracking-wide text-foreground">
+          <h3 className="text-xl tracking-wide text-foreground">
             CROP IMAGE
           </h3>
           <button

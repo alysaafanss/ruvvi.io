@@ -14,7 +14,7 @@ export default function Subscription({ content = {} }) {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <EditableText section="subscription" field="eyebrow" value={c.eyebrow} tag="p" className="text-[10px] tracking-[0.3em] uppercase text-accent" />
-          <EditableText section="subscription" field="heading" value={c.heading} tag="h2" className="mt-3 font-display text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
+          <EditableText section="subscription" field="heading" value={c.heading} tag="h2" className="mt-3 text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
           <EditableText section="subscription" field="subtext" value={c.subtext} tag="p" className="mx-auto mt-4 max-w-lg text-sm text-muted/60 sm:text-base lg:text-lg" />
 
           <ul className="mx-auto mt-8 flex max-w-md flex-col gap-0 text-left sm:mt-10">

@@ -13,7 +13,7 @@ export default function ProductDetails({ content = {}, images = [] }) {
         <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="text-[10px] tracking-[0.3em] uppercase text-accent mb-4">Specifications</p>
-            <EditableText section="productDetails" field="heading" value={c.heading} tag="h2" className="font-display text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
+            <EditableText section="productDetails" field="heading" value={c.heading} tag="h2" className="text-3xl font-light tracking-[0.02em] text-foreground sm:text-4xl lg:text-5xl" />
             <div className="thin-rule mt-6 mb-6" />
             <EditableText section="productDetails" field="description" value={c.description} tag="p" className="text-sm leading-relaxed text-muted/70 sm:text-base" />
             <ul className="mt-6 flex flex-col gap-0">

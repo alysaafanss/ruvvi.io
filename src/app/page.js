@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/client";
+import { SmokeBackground } from "@/components/ui/spooky-smoke-animation";
 
 /* ─── helpers ─── */
 
@@ -178,8 +179,10 @@ export default function ComingSoon() {
     <div className="cs-bg relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 sm:px-6"
       style={{ background: "#0A0A0A" }}
     >
-      {/* Breathing copper glow */}
-      <div className="cs-glow pointer-events-none absolute inset-0 z-0" />
+      {/* Smoke animation background */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-60">
+        <SmokeBackground smokeColor="#C8956C" />
+      </div>
 
       {/* Subtle grain/noise texture at 2-3% opacity */}
       <div
@@ -207,7 +210,7 @@ export default function ComingSoon() {
         </div>
 
         {/* Headline */}
-        <h2 className="cs-headline mt-8 font-display text-[32px] font-normal leading-[1.1] tracking-[0.03em] text-foreground sm:mt-12 sm:text-[56px] md:text-[64px]">
+        <h2 className="cs-headline mt-8 text-[32px] font-normal leading-[1.1] tracking-[0.03em] text-foreground sm:mt-12 sm:text-[56px] md:text-[64px]">
           For the night ahead.
         </h2>
 
