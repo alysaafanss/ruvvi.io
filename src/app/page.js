@@ -240,7 +240,7 @@ export default function ComingSoon() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="h-[50px] shrink-0 bg-accent px-6 text-[14px] font-semibold uppercase tracking-[0.1em] text-background transition-all duration-200 hover:bg-accent-light hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
+                  className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-semibold uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
                 >
                   {loading ? (
                     <span className="inline-flex items-center gap-1">
@@ -284,7 +284,7 @@ export default function ComingSoon() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="h-[50px] shrink-0 bg-accent px-6 text-[14px] font-semibold uppercase tracking-[0.1em] text-background transition-all duration-200 hover:bg-accent-light hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
+                    className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-semibold uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
                   >
                     {loading ? (
                       <span className="inline-flex items-center gap-1">
@@ -324,19 +324,19 @@ export default function ComingSoon() {
                 <p className="text-[13px] tracking-[0.05em] text-muted">Follow the journey</p>
                 <div className="mt-3 flex items-center justify-center gap-4">
                   <a
-                    href="https://tiktok.com/@ruvvi"
+                    href="https://tiktok.com/@ruvvi.co"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
+                    className="flex h-10 w-10 items-center justify-center text-accent transition-colors duration-200 hover:text-accent-light"
                     aria-label="TikTok"
                   >
                     <TikTokIcon className="h-5 w-5" />
                   </a>
                   <a
-                    href="https://instagram.com/ruvvi"
+                    href="https://instagram.com/ruvvi.co"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
+                    className="flex h-10 w-10 items-center justify-center text-accent transition-colors duration-200 hover:text-accent-light"
                     aria-label="Instagram"
                   >
                     <InstagramIcon className="h-5 w-5" />
@@ -382,7 +382,29 @@ export default function ComingSoon() {
 
       {/* ── Footer ── */}
       <footer className="absolute bottom-0 left-0 right-0 px-5 py-5 text-center sm:px-6">
-        <div className="flex items-center justify-center gap-4 text-[11px] text-muted sm:text-[12px]">
+        {step !== "done" && (
+          <div className="flex items-center justify-center gap-4">
+            <a
+              href="https://tiktok.com/@ruvvi.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-8 w-8 items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
+              aria-label="TikTok"
+            >
+              <TikTokIcon className="h-4 w-4" />
+            </a>
+            <a
+              href="https://instagram.com/ruvvi.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-8 w-8 items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
+              aria-label="Instagram"
+            >
+              <InstagramIcon className="h-4 w-4" />
+            </a>
+          </div>
+        )}
+        <div className="mt-2 flex items-center justify-center gap-4 text-[11px] text-muted sm:text-[12px]">
           <span>&copy; {new Date().getFullYear()} Ruvvi. All rights reserved.</span>
           <a href="/privacy" className="transition-colors duration-200 hover:text-foreground">Privacy</a>
         </div>
