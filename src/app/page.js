@@ -171,7 +171,7 @@ export default function ComingSoon() {
 
   const VALUE_PROPS = [
     "Clinically Dosed",
-    "Works in 30 Minutes",
+    "Felt in 30 Minutes",
     "No Prescription Needed",
   ];
 
