@@ -30,30 +30,30 @@ const bdScript = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://www.ruvvi.co"),
+  metadataBase: new URL("https://ruvvi.co"),
   title: "RUVVI — For the night ahead.",
   description:
-    "Premium sexual wellness. Clinically dosed. Works in 30 minutes. Get early access.",
+    "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. No prescription needed. Join the waitlist.",
   keywords: [
     "sexual wellness",
-    "liquid sachet",
+    "performance pouch",
+    "oral pouch",
     "discreet",
     "confidence",
-    "clinically dosed",
     "RUVVI",
   ],
   openGraph: {
     title: "RUVVI — For the night ahead.",
     description:
-      "Premium sexual wellness. Clinically dosed. Works in 30 minutes. Get early access.",
-    url: "https://www.ruvvi.co",
+      "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
+    url: "https://ruvvi.co",
     siteName: "RUVVI",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://www.ruvvi.co/og-image.jpg",
-        secureUrl: "https://www.ruvvi.co/og-image.jpg",
+        url: "https://ruvvi.co/og-image.jpg",
+        secureUrl: "https://ruvvi.co/og-image.jpg",
         type: "image/jpeg",
         width: 1200,
         height: 630,
@@ -65,16 +65,16 @@ export const metadata = {
     card: "summary_large_image",
     title: "RUVVI — For the night ahead.",
     description:
-      "Premium sexual wellness. Clinically dosed. Works in 30 minutes. Get early access.",
+      "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
     images: [
       {
-        url: "https://www.ruvvi.co/og-image.jpg",
+        url: "https://ruvvi.co/og-image.jpg",
         alt: "RUVVI — For the night ahead.",
       },
     ],
   },
   other: {
-    "og:image:secure_url": "https://www.ruvvi.co/og-image.jpg",
+    "og:image:secure_url": "https://ruvvi.co/og-image.jpg",
     "og:image:type": "image/jpeg",
     "og:image:width": "1200",
     "og:image:height": "630",
