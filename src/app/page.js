@@ -205,6 +205,7 @@ export default function ComingSoon() {
             width={693}
             height={137}
             priority
+            sizes="220px"
             className="w-[45vw] max-w-[220px] h-auto sm:w-[220px]"
           />
         </div>

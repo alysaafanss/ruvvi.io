@@ -33,7 +33,7 @@ export const metadata = {
   metadataBase: new URL("https://ruvvi.co"),
   title: "RUVVI — For the night ahead.",
   description:
-    "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. No prescription needed. Join the waitlist.",
+    "Sexual wellness, reimagined. Clinically dosed. Felt in 30 minutes. Get early access.",
   keywords: [
     "sexual wellness",
     "performance pouch",
@@ -45,7 +45,7 @@ export const metadata = {
   openGraph: {
     title: "RUVVI — For the night ahead.",
     description:
-      "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
+      "Sexual wellness, reimagined. Clinically dosed. Felt in 30 minutes. Get early access.",
     url: "https://ruvvi.co",
     siteName: "RUVVI",
     type: "website",
@@ -65,7 +65,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "RUVVI — For the night ahead.",
     description:
-      "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
+      "Sexual wellness, reimagined. Clinically dosed. Felt in 30 minutes. Get early access.",
     images: [
       {
         url: "https://ruvvi.co/og-image.jpg",
