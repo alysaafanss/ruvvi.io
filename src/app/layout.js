@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const metropolis = localFont({
@@ -32,13 +33,23 @@ export const metadata = {
   metadataBase: new URL("https://ruvvi.io"),
   title: "RUVVI — For the night ahead.",
   description:
-    "Premium sexual wellness. Launching soon. Be the first to know.",
+    "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. No prescription needed. Join the waitlist.",
+  keywords: [
+    "sexual wellness",
+    "performance pouch",
+    "oral pouch",
+    "discreet",
+    "confidence",
+    "RUVVI",
+  ],
   openGraph: {
     title: "RUVVI — For the night ahead.",
-    description: "Premium sexual wellness. Launching soon. Be the first to know.",
+    description:
+      "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
     url: "https://ruvvi.io",
     siteName: "RUVVI",
     type: "website",
+    locale: "en_US",
     images: [
       {
         url: "/og-image.png",
@@ -51,15 +62,22 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "RUVVI — For the night ahead.",
-    description: "Premium sexual wellness. Launching soon. Be the first to know.",
+    description:
+      "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
     images: ["/og-image.png"],
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${metropolis.variable} ${theSeasons.variable} ${bdScript.variable} antialiased`}>
+        <Analytics />
         {children}
       </body>
     </html>
