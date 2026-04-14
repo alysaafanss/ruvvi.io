@@ -234,13 +234,13 @@ export default function ComingSoon() {
                     onChange={(e) => { setEmail(e.target.value); setError(""); }}
                     placeholder="Enter your email"
                     autoComplete="email"
-                    className={`h-[50px] w-full bg-secondary-bg px-4 text-[16px] text-foreground placeholder-muted outline-none transition-colors duration-200 border ${shaking ? "shake" : ""} ${error ? "border-error" : "border-border focus:border-accent"} sm:rounded-l-lg sm:rounded-r-none rounded-lg`}
+                    className={`h-[50px] w-full bg-secondary-bg px-4 text-[16px] text-foreground placeholder-muted outline-none transition-colors duration-200 border ${shaking ? "shake" : ""} ${error ? "border-error" : "border-border focus:border-accent"} rounded-none`}
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
+                  className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 rounded-none sm:px-8 sm:text-[15px]"
                 >
                   {loading ? (
                     <span className="inline-flex items-center gap-1">
@@ -279,13 +279,13 @@ export default function ComingSoon() {
                       }}
                       placeholder="Phone number"
                       autoComplete="tel"
-                      className={`h-[50px] w-full bg-secondary-bg px-4 text-[16px] text-foreground placeholder-muted outline-none transition-colors duration-200 border ${shaking ? "shake" : ""} ${error ? "border-error" : "border-border focus:border-accent"} sm:rounded-l-lg sm:rounded-r-none rounded-lg`}
+                      className={`h-[50px] w-full bg-secondary-bg px-4 text-[16px] text-foreground placeholder-muted outline-none transition-colors duration-200 border ${shaking ? "shake" : ""} ${error ? "border-error" : "border-border focus:border-accent"} rounded-none`}
                     />
                   </div>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
+                    className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 rounded-none sm:px-8 sm:text-[15px]"
                   >
                     {loading ? (
                       <span className="inline-flex items-center gap-1">
