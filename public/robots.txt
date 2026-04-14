@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ruvvi.io/sitemap.xml
+Sitemap: https://ruvvi.co/sitemap.xml

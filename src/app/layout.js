@@ -30,7 +30,7 @@ const bdScript = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://ruvvi.io"),
+  metadataBase: new URL("https://ruvvi.co"),
   title: "RUVVI — For the night ahead.",
   description:
     "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. No prescription needed. Join the waitlist.",
@@ -46,14 +46,14 @@ export const metadata = {
     title: "RUVVI — For the night ahead.",
     description:
       "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
-    url: "https://ruvvi.io",
+    url: "https://ruvvi.co",
     siteName: "RUVVI",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://ruvvi.io/og-image.jpg",
-        secureUrl: "https://ruvvi.io/og-image.jpg",
+        url: "https://ruvvi.co/og-image.jpg",
+        secureUrl: "https://ruvvi.co/og-image.jpg",
         type: "image/jpeg",
         width: 1200,
         height: 630,
@@ -68,13 +68,13 @@ export const metadata = {
       "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
     images: [
       {
-        url: "https://ruvvi.io/og-image.jpg",
+        url: "https://ruvvi.co/og-image.jpg",
         alt: "RUVVI — For the night ahead.",
       },
     ],
   },
   other: {
-    "og:image:secure_url": "https://ruvvi.io/og-image.jpg",
+    "og:image:secure_url": "https://ruvvi.co/og-image.jpg",
     "og:image:type": "image/jpeg",
     "og:image:width": "1200",
     "og:image:height": "630",
