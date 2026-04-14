@@ -241,7 +241,7 @@ export default function ComingSoon() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 rounded-none sm:px-8 sm:text-[15px]"
+                  className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-[#0A0A0A] transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 rounded-none sm:px-8 sm:text-[15px]"
                 >
                   {loading ? (
                     <span className="inline-flex items-center gap-1">
@@ -286,7 +286,7 @@ export default function ComingSoon() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 rounded-none sm:px-8 sm:text-[15px]"
+                    className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-[#0A0A0A] transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 rounded-none sm:px-8 sm:text-[15px]"
                   >
                     {loading ? (
                       <span className="inline-flex items-center gap-1">
@@ -323,7 +323,7 @@ export default function ComingSoon() {
                 We&apos;ll let you know before anyone else.
               </p>
               <div className="mt-6">
-                <p className="text-[13px] font-normal tracking-[0.05em] text-muted">Follow the journey</p>
+                <p className="text-[13px] font-normal tracking-[0.05em] text-muted">Stay close.</p>
                 <div className="mt-3 flex items-center justify-center gap-4">
                   <a
                     href="https://tiktok.com/@ruvvi.co"
@@ -390,7 +390,7 @@ export default function ComingSoon() {
               href="https://tiktok.com/@ruvvi.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
+              className="flex h-8 w-8 items-center justify-center text-accent transition-colors duration-200 hover:text-accent-light"
               aria-label="TikTok"
             >
               <TikTokIcon className="h-4 w-4" />
@@ -399,7 +399,7 @@ export default function ComingSoon() {
               href="https://instagram.com/ruvvi.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center text-muted transition-colors duration-200 hover:text-accent"
+              className="flex h-8 w-8 items-center justify-center text-accent transition-colors duration-200 hover:text-accent-light"
               aria-label="Instagram"
             >
               <InstagramIcon className="h-4 w-4" />
