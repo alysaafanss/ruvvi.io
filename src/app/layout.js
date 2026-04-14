@@ -52,7 +52,9 @@ export const metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://ruvvi.io/og-image.jpg",
+        secureUrl: "https://ruvvi.io/og-image.jpg",
+        type: "image/jpeg",
         width: 1200,
         height: 630,
         alt: "RUVVI — For the night ahead.",
@@ -64,7 +66,18 @@ export const metadata = {
     title: "RUVVI — For the night ahead.",
     description:
       "Premium oral pouches for confidence and performance. Discreet, fast-acting, clinically dosed. Join the waitlist.",
-    images: ["/og-image.png"],
+    images: [
+      {
+        url: "https://ruvvi.io/og-image.jpg",
+        alt: "RUVVI — For the night ahead.",
+      },
+    ],
+  },
+  other: {
+    "og:image:secure_url": "https://ruvvi.io/og-image.jpg",
+    "og:image:type": "image/jpeg",
+    "og:image:width": "1200",
+    "og:image:height": "630",
   },
   icons: {
     icon: "/favicon.ico",
