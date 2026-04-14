@@ -170,9 +170,9 @@ export default function ComingSoon() {
   }
 
   const VALUE_PROPS = [
-    "Clinically dosed",
-    "Works in 30 minutes",
-    "No prescription needed",
+    "Clinically Dosed",
+    "Works in 30 Minutes",
+    "No Prescription Needed",
   ];
 
   return (
@@ -210,12 +210,12 @@ export default function ComingSoon() {
         </div>
 
         {/* Headline */}
-        <h2 className="cs-headline mt-8 text-[32px] font-normal leading-[1.1] tracking-[0.03em] text-foreground sm:mt-12 sm:text-[56px] md:text-[64px]">
+        <h2 className="cs-headline mt-8 text-[32px] font-semibold leading-[1.1] tracking-[0.03em] text-foreground sm:mt-12 sm:text-[56px] md:text-[64px]">
           For the night ahead.
         </h2>
 
         {/* Subheadline */}
-        <p className="cs-sub mt-3 max-w-[500px] text-[16px] leading-[1.5] text-muted sm:mt-5 sm:text-[20px]">
+        <p className="cs-sub mt-3 max-w-[500px] text-[16px] font-normal leading-[1.5] text-muted sm:mt-5 sm:text-[20px]">
           Premium sexual wellness. Launching soon. Be the first to know.
         </p>
 
@@ -240,7 +240,7 @@ export default function ComingSoon() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-semibold uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
+                  className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
                 >
                   {loading ? (
                     <span className="inline-flex items-center gap-1">
@@ -265,6 +265,7 @@ export default function ComingSoon() {
               <p className="mb-4 text-[18px] font-medium text-foreground sm:text-[20px]">
                 Want a text when we launch?
               </p>
+
               <form onSubmit={handlePhoneSubmit} className="w-full" noValidate>
                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-0">
                   <div className="relative flex-1">
@@ -284,7 +285,7 @@ export default function ComingSoon() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-semibold uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
+                    className="h-[50px] shrink-0 bg-accent-dark px-6 text-[14px] font-medium uppercase tracking-[0.1em] text-foreground transition-all duration-200 hover:bg-accent hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100 sm:rounded-r-lg sm:rounded-l-none rounded-lg sm:px-8 sm:text-[15px]"
                   >
                     {loading ? (
                       <span className="inline-flex items-center gap-1">
@@ -304,7 +305,7 @@ export default function ComingSoon() {
               </form>
               <button
                 onClick={handleSkip}
-                className="mt-3 text-[13px] text-muted underline-offset-2 transition-colors duration-200 hover:text-foreground hover:underline"
+                className="mt-3 text-[13px] font-normal text-muted underline-offset-2 transition-colors duration-200 hover:text-foreground hover:underline"
               >
                 Skip
               </button>
@@ -314,14 +315,14 @@ export default function ComingSoon() {
           {/* Step 3: Confirmation */}
           {step === "done" && (
             <div className="w-full">
-              <p className="text-[28px] font-medium tracking-[0.02em] text-foreground sm:text-[32px]">
+              <p className="text-[28px] font-semibold tracking-[0.02em] text-foreground sm:text-[32px]">
                 You&apos;re in.
               </p>
-              <p className="mt-2 text-[16px] text-muted sm:text-[18px]">
+              <p className="mt-2 text-[16px] font-normal text-muted sm:text-[18px]">
                 We&apos;ll let you know before anyone else.
               </p>
               <div className="mt-6">
-                <p className="text-[13px] tracking-[0.05em] text-muted">Follow the journey</p>
+                <p className="text-[13px] font-normal tracking-[0.05em] text-muted">Follow the journey</p>
                 <div className="mt-3 flex items-center justify-center gap-4">
                   <a
                     href="https://tiktok.com/@ruvvi.co"

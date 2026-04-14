@@ -1,10 +1,13 @@
 import localFont from "next/font/local";
-import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dmsans",
+const metropolis = localFont({
+  src: [
+    { path: "../fonts/Metropolis-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/Metropolis-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/Metropolis-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-metropolis",
   display: "swap",
 });
 
@@ -56,7 +59,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${theSeasons.variable} ${bdScript.variable} antialiased`}>
+      <body className={`${metropolis.variable} ${theSeasons.variable} ${bdScript.variable} antialiased`}>
         {children}
       </body>
     </html>
