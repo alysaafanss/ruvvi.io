@@ -177,7 +177,7 @@ export default function ComingSoon() {
 
   return (
     <div className="cs-bg relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 sm:px-6"
-      style={{ background: "#0A0A0A" }}
+      style={{ background: "#000000" }}
     >
       {/* Smoke animation background */}
       <div className="pointer-events-none absolute inset-0 z-0 opacity-60">
@@ -216,7 +216,7 @@ export default function ComingSoon() {
 
         {/* Subheadline */}
         <p className="cs-sub mt-3 max-w-[500px] text-[16px] font-normal leading-[1.5] text-muted sm:mt-5 sm:text-[20px]">
-          Premium sexual wellness. Launching soon. Be the first to know.
+          Sexual wellness, reimagined. Be the first to know.
         </p>
 
         {/* ── Form area ── */}
