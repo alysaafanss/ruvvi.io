@@ -217,7 +217,7 @@ export default function ComingSoon() {
 
         {/* Subheadline */}
         <p className="cs-sub mt-3 max-w-[500px] text-[16px] font-normal leading-[1.5] text-muted sm:mt-5 sm:text-[20px]">
-          Sexual wellness, reimagined. Be the first to know.
+          Sexual wellness, reimagined.
         </p>
 
         {/* ── Form area ── */}
