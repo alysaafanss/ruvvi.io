@@ -181,7 +181,7 @@ export default function ComingSoon() {
     >
       {/* Smoke animation background */}
       <div className="pointer-events-none absolute inset-0 z-0 opacity-60">
-        <SmokeBackground smokeColor="#C8956C" />
+        <SmokeBackground smokeColor="#9A6B45" />
       </div>
 
       {/* Subtle grain/noise texture at 2-3% opacity */}
@@ -323,8 +323,7 @@ export default function ComingSoon() {
                 We&apos;ll let you know before anyone else.
               </p>
               <div className="mt-6">
-                <p className="text-[13px] font-normal tracking-[0.05em] text-muted">Stay close.</p>
-                <div className="mt-3 flex items-center justify-center gap-4">
+                <div className="flex items-center justify-center gap-4">
                   <a
                     href="https://tiktok.com/@ruvvi.co"
                     target="_blank"
