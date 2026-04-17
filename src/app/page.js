@@ -356,12 +356,9 @@ export default function ComingSoon() {
             {VALUE_PROPS.map((prop, i) => (
               <div key={prop} className="flex items-center">
                 {i > 0 && <div className="mx-5 h-4 w-px bg-border" />}
-                <div className="flex items-center gap-2">
-                  <CopperDot />
-                  <span className="text-[15px] font-medium tracking-[0.05em] text-foreground">
-                    {prop}
-                  </span>
-                </div>
+                <span className="text-[15px] font-medium tracking-[0.05em] text-foreground">
+                  {prop}
+                </span>
               </div>
             ))}
           </div>
@@ -370,12 +367,9 @@ export default function ComingSoon() {
             {VALUE_PROPS.map((prop, i) => (
               <div key={prop} className="flex flex-col items-center">
                 {i > 0 && <div className="my-2.5 h-px w-12 bg-border" />}
-                <div className="flex items-center gap-2">
-                  <CopperDot />
-                  <span className="text-[14px] font-medium tracking-[0.05em] text-foreground">
-                    {prop}
-                  </span>
-                </div>
+                <span className="text-[14px] font-medium tracking-[0.05em] text-foreground">
+                  {prop}
+                </span>
               </div>
             ))}
           </div>
