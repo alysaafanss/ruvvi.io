@@ -7,19 +7,25 @@ import { SmokeBackground } from "@/components/ui/spooky-smoke-animation";
 
 /* ─── helpers ─── */
 
+function sanitize(str, maxLen = 100) {
+  if (!str || typeof str !== "string") return null;
+  return str.slice(0, maxLen).replace(/[<>"'`;]/g, "");
+}
+
 function getUtmParams() {
   if (typeof window === "undefined") return {};
   const params = new URLSearchParams(window.location.search);
   const utm = {};
   for (const key of ["utm_source", "utm_medium", "utm_campaign"]) {
     const val = params.get(key);
-    if (val) utm[key] = val;
+    if (val) utm[key] = sanitize(val);
   }
   return utm;
 }
 
 function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!email || email.length > 254) return false;
+  return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email);
 }
 
 function formatPhone(raw) {
@@ -33,19 +39,23 @@ function formatPhone(raw) {
 /* ─── Supabase waitlist subscribe ─── */
 
 async function subscribeToWaitlist({ email, phone, referredBy }) {
+  const cleanEmail = email?.trim().toLowerCase().slice(0, 254);
+  if (!isValidEmail(cleanEmail)) return { ok: false };
+
   const utm = getUtmParams();
   const supabase = createClient();
 
   const row = {
-    email,
+    email: cleanEmail,
     utm_source: utm.utm_source || null,
     utm_medium: utm.utm_medium || null,
     utm_campaign: utm.utm_campaign || null,
-    referred_by: referredBy || null,
+    referred_by: sanitize(referredBy) || null,
   };
 
   if (phone) {
-    row.phone = `+1${phone.replace(/\D/g, "")}`;
+    const digits = phone.replace(/\D/g, "").slice(0, 15);
+    if (digits.length >= 10) row.phone = `+1${digits}`;
   }
 
   try {

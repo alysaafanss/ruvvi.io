@@ -1,10 +1,17 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { isLoggedIn } from "@/app/admin/login/actions";
+
+async function requireAdmin() {
+  const authed = await isLoggedIn();
+  if (!authed) throw new Error("Unauthorized");
+}
 
 export async function saveContentAction(sectionId, content) {
-  const supabase = await createClient();
+  await requireAdmin();
+  const supabase = createAdminClient();
 
   const { error } = await supabase
     .from("page_content")
@@ -22,7 +29,8 @@ export async function saveContentAction(sectionId, content) {
 }
 
 export async function saveBulkContentAction(changes) {
-  const supabase = await createClient();
+  await requireAdmin();
+  const supabase = createAdminClient();
   const rows = Object.entries(changes).map(([id, content]) => ({
     id,
     content,

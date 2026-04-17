@@ -1,7 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { isLoggedIn } from "@/app/admin/login/actions";
 import {
   ensureBucket,
   uploadImage,
@@ -9,14 +10,21 @@ import {
   listImages,
 } from "@/lib/supabase/storage";
 
+async function requireAdmin() {
+  const authed = await isLoggedIn();
+  if (!authed) throw new Error("Unauthorized");
+}
+
 export async function getImagesAction(category) {
-  const supabase = await createClient();
+  await requireAdmin();
+  const supabase = createAdminClient();
   await ensureBucket(supabase);
   return listImages(supabase, category || null);
 }
 
 export async function uploadImageAction(formData) {
-  const supabase = await createClient();
+  await requireAdmin();
+  const supabase = createAdminClient();
   await ensureBucket(supabase);
 
   const file = formData.get("file");
@@ -36,7 +44,8 @@ export async function uploadImageAction(formData) {
 }
 
 export async function deleteImageAction(path) {
-  const supabase = await createClient();
+  await requireAdmin();
+  const supabase = createAdminClient();
   try {
     await deleteImage(supabase, path);
     revalidatePath("/");
@@ -47,7 +56,8 @@ export async function deleteImageAction(path) {
 }
 
 export async function getImagesByCategory(category) {
-  const supabase = await createClient();
+  await requireAdmin();
+  const supabase = createAdminClient();
   const images = await listImages(supabase, category);
   return images.map((img) => img.url).filter(Boolean);
 }
